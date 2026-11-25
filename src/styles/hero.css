@@ -1,0 +1,349 @@
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy-700);
+  color: var(--neutral-0);
+  padding: 126px 0 120px;
+  /* Profile strip scale: 1 at desktop, shrinks on smaller screens */
+  --k: 1;
+}
+.hero__bg {
+  position: absolute;
+  inset: -40px 0;
+  pointer-events: none;
+  /* navy lives here too so the multiply blend still works when this layer is transformed */
+  background: var(--navy-700);
+}
+.hero__bg img { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; }
+
+.hero__content {
+  position: relative;
+  width: min(811px, 100% - 2 * var(--gutter));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero__title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(40px, 4.45vw, 64px);
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.hero__line { display: flex; align-items: center; gap: 0.19em; }
+.hero__word { display: inline-block; }
+
+/* The coral "verified" highlight */
+.hero__pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.11em 0.31em 0.11em 0.39em;
+  border-radius: 0.25em;
+  background: var(--coral-500);
+  filter: drop-shadow(0 2px 7.5px rgba(0, 0, 0, 0.2));
+  overflow: hidden;
+}
+.hero__pill-text { position: relative; z-index: 1; }
+.hero__pill-texture {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: url("/assets/shared/grain-gradient.jpg") center / cover;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.hero__subtitle {
+  margin-top: 20px;
+  max-width: 701px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* ---------- Search ---------- */
+.search {
+  margin-top: 36px;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  height: 70px;
+}
+.search__box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 12px 12px 20px;
+  background: var(--neutral-0);
+  border-radius: 12px;
+  box-shadow: 0 0 0 0 rgba(255, 107, 74, 0);
+  transition: box-shadow 0.35s var(--ease-out);
+}
+.search__box:focus-within { box-shadow: 0 0 0 4px rgba(255, 107, 74, 0.45); }
+.search__field { display: flex; height: 50px; padding: 4px 24px 4px 0; }
+.search__field--keyword { flex: 1; border-right: 1px solid var(--border-strong); }
+.search__field--location { width: 179px; }
+.search__field input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.2;
+  color: var(--neutral-900);
+}
+.search__field input::placeholder { color: var(--text-muted); opacity: 1; }
+
+.search__submit {
+  position: relative;
+  overflow: hidden;
+  padding: 8px 32px;
+  border: 1px solid var(--neutral-0);
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--neutral-0);
+  white-space: nowrap;
+  font-feature-settings: "cv01" 1, "cv03" 1, "cv04" 1;
+  transition: color 0.4s var(--ease-out);
+}
+/* White fill that wipes up from the bottom on hover */
+.search__submit::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--neutral-0);
+  transform: translateY(101%);
+  transition: transform 0.45s var(--ease-out);
+}
+.search__submit span { position: relative; }
+.search__submit:hover,
+.search__submit:focus-visible { color: var(--navy-700); }
+.search__submit:hover::before,
+.search__submit:focus-visible::before { transform: translateY(0); }
+
+/* ---------- Profile strip ----------
+   Every card is the same component. Its "featured-ness" is one number, --f:
+   0 = regular side card, 1 = featured (Adaeze's size in the design).
+   Sizes, type and tint all interpolate from --f, so the carousel can morph
+   any card into the featured one just by tweening --f from 0 to 1. */
+.profiles {
+  position: relative;
+  margin-top: 54px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 21px;
+  zoom: var(--k);
+  perspective: 1200px;
+}
+
+/* Coral corner brackets: a fixed "viewfinder" in the middle of the strip */
+.profiles__frame {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  width: 381px;
+  height: 400px;
+  translate: -50% -50%;
+  pointer-events: none;
+}
+.corner { position: absolute; width: 22.925px; height: 23.65px; }
+.corner--tl { top: 0; left: 0; transform: scaleX(-1); }
+.corner--tr { top: 0; right: 0; }
+.corner--bl { bottom: 0; left: 0; transform: scale(-1, -1); }
+.corner--br { bottom: 0; right: 0; transform: scaleY(-1); }
+
+.profile {
+  --f: 0;
+  position: relative;
+  flex-shrink: 0;
+  width: calc(236px + 115.43px * var(--f));
+  height: calc(289px + 91.95px * var(--f));
+  border-radius: calc(24px - 1.14px * var(--f));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  isolation: isolate;
+  transform-style: preserve-3d;
+  will-change: transform;
+  color: var(--neutral-0);
+  box-shadow: 0 calc(10px + 14px * var(--f)) calc(30px + 30px * var(--f))
+    rgba(0, 5, 40, calc(0.15 + 0.2 * var(--f)));
+}
+.profile.is-featured { --f: 1; }
+
+.profile__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+  transform: scale(1.001);
+  transition: transform 0.8s var(--ease-out);
+}
+/* Navy shade on regular cards, warm shade fades in as the card becomes featured */
+.profile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(to bottom, rgba(0, 5, 75, 0) 37.981%, rgba(0, 5, 75, 0.9) 89.423%);
+  opacity: calc(1 - var(--f));
+}
+.profile__warm {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(81, 15, 0, 0) 48.885%, rgba(81, 15, 0, 0.9) 80.114%);
+  opacity: var(--f);
+}
+/* Glare highlight that follows the cursor (positioned by JS via --gx/--gy) */
+.profile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--gx, 50%) var(--gy, 0%),
+    rgba(255, 255, 255, 0.28),
+    rgba(255, 255, 255, 0) 55%
+  );
+  opacity: var(--glare, 0);
+  transition: opacity 0.4s var(--ease-out);
+  mix-blend-mode: overlay;
+}
+.profile:hover .profile__img { transform: scale(1.06); }
+
+.profile__body {
+  display: flex;
+  flex-direction: column;
+  padding: 0 calc(16px - 0.76px * var(--f)) calc(24px + 6.48px * var(--f));
+}
+.profile__name {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  font-size: calc(24px + 10.286px * var(--f));
+  line-height: 1;
+  letter-spacing: calc(-0.48px - 0.2057px * var(--f));
+  white-space: nowrap;
+}
+.profile__role {
+  margin-top: 8px;
+  font-family: var(--font-condensed);
+  font-weight: 400;
+  font-size: calc(18px + 8.667px * var(--f));
+  line-height: 1;
+  white-space: nowrap;
+}
+.profile__badges {
+  margin-top: calc(12px - 0.57px * var(--f));
+  display: flex;
+  gap: 4px;
+  zoom: calc(1 + 0.1675 * var(--f)); /* featured badges are 16.75% larger */
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3.5px;
+  height: 21.9px;
+  padding: 2px 8px;
+  border: 0.886px solid var(--neutral-0);
+  border-radius: 100px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: -0.28px;
+  white-space: nowrap;
+}
+.badge img { width: 16px; height: 16px; }
+
+/* Carousel mode (added by profile-carousel.js): cards are stacked in the
+   centre and GSAP moves them along the row with `x`. */
+.profiles--carousel { display: block; }
+.profiles--carousel .profile {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  cursor: pointer;
+}
+.profiles--carousel .profile.is-featured { cursor: default; }
+
+
+@media (max-width: 1400px) { .hero { --k: 0.86; } }
+@media (max-width: 1180px) { .hero { --k: 0.74; } }
+@media (max-width: 900px) {
+  .hero { --k: 0.62; padding-top: 88px; }
+}
+@media (max-width: 640px) {
+  .hero { --k: 0.5; padding-top: 64px; padding-bottom: 104px; }
+  .hero__title { gap: 8px; }
+  .hero__line--first { gap: 0.15em; }
+  .hero__subtitle { font-size: 17px; margin-top: 16px; }
+  .search { flex-direction: column; height: auto; gap: 12px; margin-top: 28px; }
+  .search__box { flex-direction: column; align-items: stretch; gap: 0; padding: 4px 16px; }
+  .search__field { height: 52px; padding: 4px 0; }
+  .search__field--keyword { border-right: 0; border-bottom: 1px solid var(--border-strong); }
+  .search__field--location { width: auto; }
+  .search__submit { height: 56px; }
+  .profiles { margin-top: 48px; }
+}
+
+/* ---------- Stats ---------- */
+.stats {
+  position: relative;
+  z-index: 2;
+  margin: -83px auto 0;
+  width: min(1248px, 100% - 2 * 96px);
+}
+.stats__card {
+  display: flex;
+  gap: 64px;
+  padding: 52px 82px;
+  background: var(--neutral-0);
+  border-radius: 24px;
+  box-shadow: 0 1px 0 rgba(8, 8, 63, 0.04);
+  text-align: center;
+}
+.stat { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.stat__value {
+  font-weight: 600;
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: -1.12px;
+  color: var(--neutral-900);
+  font-variant-numeric: tabular-nums;
+}
+.stat__label { font-size: 20px; line-height: 1.5; color: var(--neutral-600); }
+
+@media (max-width: 1180px) {
+  .stats { width: calc(100% - 2 * var(--gutter)); }
+  .stats__card { padding: 40px 32px; gap: 24px; }
+  .stat__value { font-size: 44px; }
+  .stat__label { font-size: 17px; }
+}
+@media (max-width: 640px) {
+  .stats { margin-top: -64px; }
+  .stats__card { padding: 28px 12px; gap: 8px; }
+  .stat__value { font-size: 32px; letter-spacing: -0.6px; }
+  .stat__label { font-size: 13px; }
+}

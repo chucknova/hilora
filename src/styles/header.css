@@ -1,0 +1,144 @@
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--neutral-0);
+  transition: box-shadow 0.3s var(--ease-out);
+}
+.site-header.is-scrolled { box-shadow: 0 6px 24px rgba(8, 8, 63, 0.08); }
+
+.site-header__inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 24px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* The exported SVG is stored upside-down; Figma flips it the same way */
+.site-header__logo img { width: 130px; height: 42px; transform: scaleY(-1); }
+
+.site-nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 36px;
+}
+.site-nav__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--neutral-900);
+  white-space: nowrap;
+  font-feature-settings: "cv01" 1, "cv03" 1, "cv04" 1;
+}
+/* Underline that draws in from the left on hover */
+.site-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--coral-500);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease-out);
+}
+.site-nav__link:hover::after { transform: scaleX(1); transform-origin: left; }
+.site-nav__more::after { right: 28px; }
+.site-nav__more img { transition: transform 0.3s var(--ease-out); }
+.site-nav__more:hover img,
+.site-nav__more[aria-expanded="true"] img { transform: rotate(180deg); }
+
+.site-header__actions { display: flex; gap: 12px; padding-left: 20px; }
+
+/* ---------- Mobile menu ---------- */
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  position: relative;
+}
+.menu-toggle span {
+  position: absolute;
+  left: 11px;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--navy-800);
+  transition: transform 0.35s var(--ease-out);
+}
+.menu-toggle span:first-child { top: 17px; }
+.menu-toggle span:last-child { top: 25px; }
+.menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(4px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-4px) rotate(-45deg); }
+
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px var(--gutter) 24px;
+  border-top: 1px solid var(--neutral-100);
+  overflow: hidden;
+}
+.mobile-menu[hidden] { display: none; }
+.mobile-menu > a {
+  padding: 12px 0;
+  font-weight: 600;
+  font-size: 18px;
+  border-bottom: 1px solid var(--neutral-100);
+}
+.mobile-menu__actions { display: flex; gap: 12px; padding-top: 16px; }
+.mobile-menu__actions .btn { flex: 1; }
+
+@media (max-width: 1180px) {
+  .site-nav,
+  .site-header__actions { display: none; }
+  .menu-toggle { display: block; }
+  .site-header__inner { padding-top: 16px; padding-bottom: 16px; }
+}
+@media (min-width: 1181px) {
+  .mobile-menu { display: none !important; }
+}
+
+/* ---------- Promo bar ---------- */
+.promo-bar { background: var(--navy-900); color: var(--neutral-0); }
+.promo-bar__inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 4px var(--gutter);
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.promo-bar__logo { width: 90px; height: auto; flex-shrink: 0; }
+.promo-bar__text { flex: 1; font-weight: 500; font-size: 14px; line-height: 1.45; }
+.promo-bar__link {
+  padding: 8px 16px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--amber-100);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+  font-feature-settings: "cv01" 1, "cv03" 1, "cv04" 1;
+  transition: text-underline-offset 0.3s var(--ease-out), color 0.3s;
+}
+.promo-bar__link:hover { text-underline-offset: 6px; color: #fff; }
+
+@media (max-width: 720px) {
+  .promo-bar__inner { flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; row-gap: 4px; }
+  .promo-bar__logo { width: 70px; }
+  .promo-bar__text { flex-basis: calc(100% - 82px); font-size: 13px; }
+  .promo-bar__link { padding: 0; margin-left: 82px; font-size: 13px; }
+}

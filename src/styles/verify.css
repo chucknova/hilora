@@ -1,0 +1,390 @@
+/* ---------- Shared section heading ---------- */
+.section-head {
+  width: min(606px, 100% - 2 * var(--gutter));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+  color: var(--navy-900);
+}
+.section-head__eyebrow {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: -0.4px;
+  color: var(--blue-500);
+}
+.section-head__title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(32px, 3.34vw, 48px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.section-head__lead {
+  font-family: var(--font-ui);
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 640px) {
+  .section-head__eyebrow { font-size: 16px; }
+  .section-head__lead { font-size: 17px; }
+}
+
+/* ---------- How verification works ---------- */
+.verify {
+  padding: 67.5px 0 78px;
+  background: var(--neutral-0);
+}
+
+.steps {
+  list-style: none;
+  margin: 65.5px auto 0;
+  padding: 0;
+  width: min(1280px, 100% - 2 * var(--gutter));
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 454px;
+  padding-bottom: 22px;
+  border-radius: 16px;
+}
+
+/* Coloured panel with the grainy gradient texture blended on top */
+.step__panel {
+  position: relative;
+  height: 236px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--panel);
+  isolation: isolate;
+  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+}
+/* very light lift — the mini UI replaying is the main hover feedback */
+.step:hover .step__panel {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -16px rgba(8, 8, 63, 0.35);
+}
+.step__texture {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 318px;
+  height: 284px;
+  translate: -50% -50%;
+  background: url("/assets/shared/grain-gradient.jpg") center / cover;
+  mix-blend-mode: overlay;
+  opacity: 0.7;
+  pointer-events: none;
+}
+/* Wider panels (tablet / mobile) still get full texture coverage */
+@media (max-width: 1100px) {
+  .step__texture { width: 130%; height: 130%; }
+}
+
+.step__ui {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+}
+
+.step__body { display: flex; flex-direction: column; gap: 8px; }
+.step__tag {
+  align-self: flex-start;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--navy-900);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--neutral-0);
+}
+.step__title {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.66px;
+  color: var(--navy-800);
+}
+.step__text {
+  margin-top: 4px; /* 12px total from the title block */
+  max-width: 264px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--navy-900);
+}
+
+/* ---------- Mini UI inside the panels ---------- */
+.ui-stack { display: flex; flex-direction: column; gap: 4.5px; }
+.ui-card {
+  width: 250px;
+  background: var(--neutral-0);
+  border-radius: 9.09px;
+  box-shadow: 0 4.55px 13.64px rgba(13, 13, 94, 0.08);
+  overflow: hidden;
+  color: var(--navy-800);
+}
+.ui-muted {
+  font-size: 11.65px;
+  line-height: 1.4;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Step 1 — checklist */
+.step:nth-child(1) .ui-stack { gap: 4.76px; }
+.ui-check {
+  display: flex;
+  align-items: center;
+  gap: 9.52px;
+  padding: 11.9px 14.29px;
+  border-radius: 9.52px;
+  font-weight: 600;
+  font-size: 15.48px;
+  line-height: 1.4;
+  letter-spacing: -0.155px;
+  white-space: nowrap;
+}
+.ui-check img { width: 23.81px; height: 23.81px; flex-shrink: 0; }
+
+/* Step 2 — person + licence */
+.step:nth-child(2) .ui-stack { gap: 4.24px; }
+.step:nth-child(2) .ui-card { border-radius: 8.475px; box-shadow: 0 4.24px 12.71px rgba(13, 13, 94, 0.08); }
+.ui-person {
+  display: flex;
+  align-items: center;
+  gap: 10.59px;
+  padding: 12.71px 14.83px;
+}
+.ui-person__photo {
+  width: 50.85px;
+  height: 55.09px;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 8.475px;
+  overflow: hidden;
+}
+/* the design crops in tighter than a plain cover fit */
+.ui-person__photo img {
+  position: absolute;
+  left: -83.5%;
+  top: -3.49%;
+  width: 267%;
+  height: 174.37%;
+  max-width: none;
+}
+.ui-person__name {
+  font-weight: 700;
+  font-size: 15.89px;
+  line-height: 1.4;
+  letter-spacing: -0.318px;
+  white-space: nowrap;
+}
+.ui-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12.71px;
+}
+.ui-row__label {
+  font-weight: 500;
+  font-size: 12.71px;
+  line-height: 1.4;
+  letter-spacing: -0.127px;
+  white-space: nowrap;
+}
+.ui-row__label--strong { font-weight: 600; font-size: 13.64px; letter-spacing: 0; }
+
+/* Step 3 — referees */
+.ui-referees {
+  display: flex;
+  align-items: flex-start;
+  gap: 9.09px;
+  padding: 11.36px 13.64px;
+}
+.ui-referee { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.ui-referee__photo {
+  position: relative;
+  height: 61.36px;
+  margin-bottom: 4.55px;
+  border-radius: 9.09px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #d0f198, #a7ec31);
+}
+.ui-referee__cutout { position: absolute; overflow: hidden; }
+.ui-referee__cutout img { position: absolute; top: 0; max-width: none; }
+.ui-referee__name { font-weight: 700; font-size: 13.64px; white-space: nowrap; }
+.ui-referee__role { font-size: 11.36px; color: var(--text-muted); white-space: nowrap; }
+.ui-row--refs { padding: 13.64px 15.91px; }
+.ui-row--refs .ui-muted { font-size: 11.36px; }
+
+/* Step 4 — live profile */
+.ui-live {
+  display: flex;
+  flex-direction: column;
+  padding: 13.64px 15.91px;
+}
+.ui-live__row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6.82px; }
+.ui-live__label {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 14.77px;
+  line-height: 1.4;
+}
+.ui-live__number {
+  font-weight: 700;
+  font-size: 34.09px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.ui-live__caption {
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+.ui-pills { display: flex; gap: 6.82px; padding: 11.36px 13.64px; }
+
+/* ---------- Pills ---------- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5.68px;
+  padding: 4.55px 11.36px;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 12.5px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.pill--green { background: var(--green-600); color: var(--neutral-0); }
+.pill--green img { width: 13.64px; height: 13.64px; }
+.ui-row .pill { font-family: var(--font-sans); letter-spacing: -0.12px; }
+.step:nth-child(2) .pill { padding: 4.24px 10.59px; font-size: 11.65px; }
+.pill--live { position: relative; background: #ffe1d8; color: #c2391b; }
+
+/* ---------- In-progress states (animated by verify.js) ----------
+   Without JS these stay hidden and the panels show the finished design. */
+.ui-card { position: relative; }
+
+/* Step 1: upload ring + progress bar */
+.ui-check__icon { position: relative; width: 23.81px; height: 23.81px; flex-shrink: 0; }
+.ui-check__icon img { position: absolute; inset: 0; }
+.ui-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  fill: none;
+  stroke-width: 2;
+}
+.ui-ring__track { stroke: var(--navy-100); }
+/* spinner arc — same navy as the finished tick so the hand-over is seamless */
+.ui-ring__fill {
+  stroke: var(--navy-800);
+  stroke-linecap: round;
+  stroke-dasharray: 0.28 1;
+}
+.ui-check__bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue-400), var(--blue-500));
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+}
+
+/* Step 2: scan beam + "Checking" pill */
+.ui-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 45%;
+  background: linear-gradient(to bottom, rgba(63, 116, 216, 0), rgba(63, 116, 216, 0.16));
+  border-bottom: 2px solid rgba(63, 116, 216, 0.85);
+  box-shadow: 0 4px 12px -2px rgba(63, 116, 216, 0.45);
+  opacity: 0;
+  pointer-events: none;
+}
+.pill-swap { display: grid; justify-items: end; align-items: center; }
+.pill-swap > .pill { grid-area: 1 / 1; }
+.pill--pending {
+  background: var(--navy-50);
+  color: var(--navy-600);
+  opacity: 0;
+}
+
+.spinner {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1.6px solid currentColor;
+  border-top-color: transparent;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Step 3: calling badges, text swap, live counter pill */
+.ui-referee__badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--neutral-0);
+  box-shadow: 0 2px 6px rgba(13, 13, 94, 0.2);
+  color: var(--navy-800);
+  opacity: 0;
+}
+.ui-referee__badge > * { grid-area: 1 / 1; }
+.ui-referee__badge img { width: 10px; height: 10px; opacity: 0; }
+.ui-swap { display: grid; }
+.ui-swap > * { grid-area: 1 / 1; }
+.ui-swap__pending { opacity: 0; }
+.pill__dot {
+  width: 6.82px;
+  height: 6.82px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.pill--dot { gap: 5.68px; letter-spacing: -0.125px; }
+[data-confirmed] { display: inline-block; min-width: 0.6em; text-align: center; font-variant-numeric: tabular-nums; }
+
+/* Step 4: confetti layer */
+.confetti { position: absolute; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; }
+.confetti i { position: absolute; display: block; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .steps { grid-template-columns: repeat(2, 1fr); row-gap: 32px; }
+  .step { min-height: 0; }
+  .step__text { max-width: none; }
+}
+@media (max-width: 640px) {
+  .verify { padding-top: 56px; padding-bottom: 56px; }
+  .steps { grid-template-columns: 1fr; margin-top: 40px; }
+  .step { padding-bottom: 0; }
+}

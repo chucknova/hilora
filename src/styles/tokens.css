@@ -1,0 +1,60 @@
+/* Design tokens — pulled from the Hilora Figma variables */
+:root {
+  /* Navy */
+  --navy-50: #eef0fa;
+  --navy-100: #dce0f4;
+  --navy-600: #1f2579;
+  --navy-700: #15196a;
+  --navy-800: #0d0d5e;
+  --navy-900: #08083f;
+
+  /* Neutral */
+  --neutral-0: #ffffff;
+  --neutral-50: #f7f8fb;
+  --neutral-100: #eef0f5;
+  --neutral-300: #c4cad6;
+  --neutral-500: #6b7385;
+  --neutral-600: #4a4e5a;
+  --neutral-700: #363b48;
+  --neutral-800: #232733;
+  --neutral-900: #12141c;
+
+  /* Accents */
+  --blue-50: #eef4fe;
+  --blue-300: #98b8f1;
+  --blue-400: #6693e6;
+  --blue-500: #3f74d8;
+  --blue-700: #1b4ea3;
+  --coral-200: #ffc2b2;
+  --coral-500: #ff6b4a;
+  --green-500: #1f8a5c;
+  --green-600: #17704a;
+  --amber-100: #fde9b0;
+
+  /* Semantic */
+  --text-primary: var(--navy-800);
+  --text-muted: #575e6d;
+  --border-default: #e6e2d9;
+  --border-strong: var(--neutral-300);
+  --border-selected: var(--navy-800);
+
+  /* Type */
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-serif: "Bitter", Georgia, serif;
+  --font-ui: "Figtree", system-ui, sans-serif;
+  --font-condensed: "Fira Sans Extra Condensed", "Arial Narrow", sans-serif;
+
+  /* Layout */
+  --page-max: 1440px;
+  --gutter: 72px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (max-width: 1024px) {
+  :root { --gutter: 32px; }
+}
+@media (max-width: 640px) {
+  :root { --gutter: 16px; }
+}

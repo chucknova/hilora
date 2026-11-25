@@ -1,0 +1,893 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hilora — Verified professionals in Lagos</title>
+    <meta
+      name="description"
+      content="Find verified professionals in Lagos. Credentials, experience and references — checked before you see them."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Figtree:wght@400;500;600;700;800&family=Fira+Sans+Extra+Condensed:wght@400;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" as="image" href="/assets/hero/adaeze-okafor.jpg" />
+    <script>document.documentElement.classList.add("js")</script>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <!-- ============ HEADER ============ -->
+    <header class="site-header" data-anim="header">
+      <div class="site-header__inner">
+        <a href="/" class="site-header__logo" aria-label="Hilora home">
+          <img src="/assets/hilora-logo.svg" width="130" height="42" alt="Hilora Staffing Solutions" />
+        </a>
+
+        <nav class="site-nav" aria-label="Main">
+          <a href="#" class="site-nav__link">Browse Talent</a>
+          <a href="#" class="site-nav__link">Contractors</a>
+          <a href="#" class="site-nav__link">BLACK Service</a>
+          <a href="#" class="site-nav__link">Expatriates</a>
+          <a href="#" class="site-nav__link">Pricing</a>
+          <button type="button" class="site-nav__link site-nav__more" aria-expanded="false">
+            More
+            <img src="/assets/chevron-down.svg" width="20" height="20" alt="" />
+          </button>
+        </nav>
+
+        <div class="site-header__actions">
+          <a href="#" class="btn btn--ghost">Log in</a>
+          <a href="#" class="btn btn--outline">Join for free</a>
+        </div>
+
+        <button type="button" class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span>
+        </button>
+      </div>
+
+      <div class="mobile-menu" id="mobile-menu" hidden>
+        <a href="#">Browse Talent</a>
+        <a href="#">Contractors</a>
+        <a href="#">BLACK Service</a>
+        <a href="#">Expatriates</a>
+        <a href="#">Pricing</a>
+        <a href="#">More</a>
+        <div class="mobile-menu__actions">
+          <a href="#" class="btn btn--ghost">Log in</a>
+          <a href="#" class="btn btn--outline">Join for free</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ PROMO BAR ============ -->
+    <div class="promo-bar" data-anim="promo">
+      <div class="promo-bar__inner">
+        <img src="/assets/hilora-black-logo.svg" width="90" height="29" alt="Hilora Black" class="promo-bar__logo" />
+        <p class="promo-bar__text">Do you have a hard-to-fill role? We headhunt in 7 working days.</p>
+        <a href="#" class="promo-bar__link">Request a quote</a>
+      </div>
+    </div>
+
+    <main>
+      <!-- ============ HERO ============ -->
+      <section class="hero" data-anim="hero">
+        <div class="hero__bg" aria-hidden="true">
+          <img src="/assets/hero/pattern-bg.jpg" alt="" />
+        </div>
+
+        <div class="hero__content">
+          <h1 class="hero__title">
+            <span class="hero__line hero__line--first">
+              <span class="hero__word">Find</span>
+              <span class="hero__pill">
+                <span class="hero__pill-text">verified</span>
+                <span class="hero__pill-texture" aria-hidden="true"></span>
+              </span>
+            </span>
+            <span class="hero__line"><span class="hero__word">professionals in Lagos</span></span>
+          </h1>
+          <p class="hero__subtitle">Credentials, experience and references — checked before you see them.</p>
+
+          <form class="search" role="search" onsubmit="return false">
+            <div class="search__box">
+              <label class="search__field search__field--keyword">
+                <span class="sr-only">Job title, skill or keyword</span>
+                <input type="text" name="q" placeholder="Search Job title, skill or keyword" autocomplete="off" />
+              </label>
+              <label class="search__field search__field--location">
+                <span class="sr-only">Location</span>
+                <input type="text" name="location" placeholder="Location" autocomplete="off" />
+              </label>
+            </div>
+            <button type="submit" class="search__submit" data-magnetic>
+              <span>Search Talent</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Profile strip. Works as a static row without JS; animations/profile-carousel.js
+             turns it into a looping carousel where each card takes a turn in the frame. -->
+        <div class="profiles">
+          <div class="profiles__frame" aria-hidden="true">
+            <img class="corner corner--tl" src="/assets/hero/corner-a.svg" width="23" height="24" alt="" />
+            <img class="corner corner--tr" src="/assets/hero/corner-b.svg" width="23" height="24" alt="" />
+            <img class="corner corner--bl" src="/assets/hero/corner-a.svg" width="23" height="24" alt="" />
+            <img class="corner corner--br" src="/assets/hero/corner-b.svg" width="23" height="24" alt="" />
+          </div>
+          <article class="profile" data-tilt>
+            <img class="profile__img" src="/assets/hero/bola-adigun.jpg" alt="" style="object-position: 56.6% 0" />
+            <span class="profile__warm" aria-hidden="true"></span>
+            <div class="profile__body">
+              <h3 class="profile__name">Bola Adigun</h3>
+              <p class="profile__role">Medical Doctor</p>
+              <div class="profile__badges">
+                <span class="badge"><img src="/assets/hero/icon-verified.svg" width="16" height="16" alt="" />Verified</span>
+              </div>
+            </div>
+          </article>
+          <article class="profile" data-tilt>
+            <img class="profile__img" src="/assets/hero/abubakar-saheed.jpg" alt="" style="object-position: 61.8% 0" />
+            <span class="profile__warm" aria-hidden="true"></span>
+            <div class="profile__body">
+              <h3 class="profile__name">Abubakar Saheed</h3>
+              <p class="profile__role">Software Engineer</p>
+              <div class="profile__badges">
+                <span class="badge"><img src="/assets/hero/icon-verified.svg" width="16" height="16" alt="" />Verified</span>
+                <span class="badge"><img src="/assets/hero/icon-boost.svg" width="16" height="16" alt="" />Boosted</span>
+              </div>
+            </div>
+          </article>
+          <article class="profile is-featured" data-tilt>
+            <img class="profile__img" src="/assets/hero/adaeze-okafor.jpg" alt="" style="object-position: 50% 50%" />
+            <span class="profile__warm" aria-hidden="true"></span>
+            <div class="profile__body">
+              <h3 class="profile__name">Adaeze Okafor</h3>
+              <p class="profile__role">Chartered Accountant</p>
+              <div class="profile__badges">
+                <span class="badge"><img src="/assets/hero/icon-verified.svg" width="16" height="16" alt="" />Verified</span>
+                <span class="badge"><img src="/assets/hero/icon-boost.svg" width="16" height="16" alt="" />Boosted</span>
+              </div>
+            </div>
+          </article>
+          <article class="profile" data-tilt>
+            <img class="profile__img" src="/assets/hero/ibrahim-musa.jpg" alt="" style="object-position: 50% 0" />
+            <span class="profile__warm" aria-hidden="true"></span>
+            <div class="profile__body">
+              <h3 class="profile__name">Ibrahim Musa</h3>
+              <p class="profile__role">Welder, Oil &amp; Gas</p>
+              <div class="profile__badges">
+                <span class="badge"><img src="/assets/hero/icon-verified.svg" width="16" height="16" alt="" />Verified</span>
+                <span class="badge"><img src="/assets/hero/icon-boost.svg" width="16" height="16" alt="" />Boosted</span>
+              </div>
+            </div>
+          </article>
+          <article class="profile" data-tilt>
+            <img class="profile__img" src="/assets/hero/funke-afolabi.jpg" alt="" style="object-position: 50% 11%" />
+            <span class="profile__warm" aria-hidden="true"></span>
+            <div class="profile__body">
+              <h3 class="profile__name">Funke Afolabi</h3>
+              <p class="profile__role">Facility Manager</p>
+              <div class="profile__badges">
+                <span class="badge"><img src="/assets/hero/icon-verified.svg" width="16" height="16" alt="" />Verified</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ STATS ============ -->
+      <section class="stats" aria-label="Hilora in numbers" data-anim="stats">
+        <div class="stats__card">
+          <div class="stat">
+            <p class="stat__value" data-count="42">42</p>
+            <p class="stat__label">Disciplines</p>
+          </div>
+          <div class="stat">
+            <p class="stat__value" data-count="565">565</p>
+            <p class="stat__label">Recognized Roles</p>
+          </div>
+          <div class="stat">
+            <p class="stat__value" data-count="275">275</p>
+            <p class="stat__label">Verified Credentials checked</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ HOW VERIFICATION WORKS ============ -->
+      <section class="verify" id="how-it-works" data-anim="verify">
+        <header class="section-head">
+          <p class="section-head__eyebrow">How verification works</p>
+          <h2 class="section-head__title">How we verify every professional on Hilora</h2>
+          <p class="section-head__lead">
+            Before a professional’s profile appears in search, it must pass four checks. Employers only see
+            profiles that have passed all four.
+          </p>
+        </header>
+
+        <ol class="steps">
+          <!-- Step 1 -->
+          <li class="step">
+            <div class="step__panel" style="--panel: var(--blue-400)">
+              <span class="step__texture" aria-hidden="true"></span>
+              <div class="step__ui ui-stack">
+                <div class="ui-card ui-check">
+                  <span class="ui-check__icon">
+                    <svg class="ui-ring" viewBox="0 0 24 24" aria-hidden="true"><circle class="ui-ring__track" cx="12" cy="12" r="9.9" /><circle class="ui-ring__fill" cx="12" cy="12" r="9.9" pathLength="1" /></svg>
+                    <img src="/assets/verify/check-1.svg" width="24" height="24" alt="" />
+                  </span>
+                  <span class="ui-check__label">Work history added</span>
+                  <span class="ui-check__bar" aria-hidden="true"></span>
+                </div>
+                <div class="ui-card ui-check">
+                  <span class="ui-check__icon">
+                    <svg class="ui-ring" viewBox="0 0 24 24" aria-hidden="true"><circle class="ui-ring__track" cx="12" cy="12" r="9.9" /><circle class="ui-ring__fill" cx="12" cy="12" r="9.9" pathLength="1" /></svg>
+                    <img src="/assets/verify/check-2.svg" width="24" height="24" alt="" />
+                  </span>
+                  <span class="ui-check__label">Certificates uploaded</span>
+                  <span class="ui-check__bar" aria-hidden="true"></span>
+                </div>
+                <div class="ui-card ui-check">
+                  <span class="ui-check__icon">
+                    <svg class="ui-ring" viewBox="0 0 24 24" aria-hidden="true"><circle class="ui-ring__track" cx="12" cy="12" r="9.9" /><circle class="ui-ring__fill" cx="12" cy="12" r="9.9" pathLength="1" /></svg>
+                    <img src="/assets/verify/check-3.svg" width="24" height="24" alt="" />
+                  </span>
+                  <span class="ui-check__label">Two referees named</span>
+                  <span class="ui-check__bar" aria-hidden="true"></span>
+                </div>
+              </div>
+            </div>
+            <div class="step__body">
+              <span class="step__tag">Step 1</span>
+              <h3 class="step__title">Apply</h3>
+              <p class="step__text">One standard form: credentials, work history and references.</p>
+            </div>
+          </li>
+
+          <!-- Step 2 -->
+          <li class="step">
+            <div class="step__panel" style="--panel: #d65872">
+              <span class="step__texture" aria-hidden="true"></span>
+              <div class="step__ui ui-stack">
+                <div class="ui-card ui-person">
+                  <span class="ui-scan" aria-hidden="true"></span>
+                  <div class="ui-person__photo"><img src="/assets/verify/tunde-bakare.jpg" alt="" /></div>
+                  <div class="ui-person__copy">
+                    <p class="ui-muted">Civil engineer</p>
+                    <p class="ui-person__name">Tunde Bakare</p>
+                    <p class="ui-muted">Ikeja, Lagos</p>
+                  </div>
+                </div>
+                <div class="ui-card ui-row">
+                  <p class="ui-row__label">COREN licence</p>
+                  <span class="pill-swap">
+                    <span class="pill pill--pending" aria-hidden="true"><span class="spinner"></span>Checking COREN</span>
+                    <span class="pill pill--green">Valid to Dec 2026</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="step__body">
+              <span class="step__tag">Step 2</span>
+              <h3 class="step__title">Credentials checked</h3>
+              <p class="step__text">Confirmed with the right body for each field: COREN, MDCN, NMCN, NBA, ICAN, CIPM and more.</p>
+            </div>
+          </li>
+
+          <!-- Step 3 -->
+          <li class="step">
+            <div class="step__panel" style="--panel: var(--coral-500)">
+              <span class="step__texture" aria-hidden="true"></span>
+              <div class="step__ui ui-stack">
+                <div class="ui-card ui-referees">
+                  <div class="ui-referee">
+                    <div class="ui-referee__photo">
+                      <div class="ui-referee__cutout" style="left: 15.91px; top: -5.68px; width: 76.14px; height: 94.32px">
+                        <img src="/assets/verify/femi-o.png" alt="" style="left: -63.53%; width: 219.6%; height: 99.76%" />
+                      </div>
+                      <span class="ui-referee__badge" aria-hidden="true"><span class="spinner spinner--dark"></span><img src="/assets/verify/tick.svg" width="10" height="10" alt="" /></span>
+                    </div>
+                    <p class="ui-referee__name">Femi O.</p>
+                    <p class="ui-referee__role">Former manager</p>
+                  </div>
+                  <div class="ui-referee">
+                    <div class="ui-referee__photo">
+                      <div class="ui-referee__cutout" style="left: 13.64px; top: -2.27px; width: 87.5px; height: 130.68px">
+                        <img src="/assets/verify/adaora-n.png" alt="" style="left: -125.99%; width: 225.99%; height: 100%" />
+                      </div>
+                      <span class="ui-referee__badge" aria-hidden="true"><span class="spinner spinner--dark"></span><img src="/assets/verify/tick.svg" width="10" height="10" alt="" /></span>
+                    </div>
+                    <p class="ui-referee__name">Adaora N.</p>
+                    <p class="ui-referee__role">Client</p>
+                  </div>
+                </div>
+                <div class="ui-card ui-row ui-row--refs">
+                  <div>
+                    <p class="ui-row__label ui-row__label--strong">References</p>
+                    <p class="ui-muted ui-swap">
+                      <span class="ui-swap__pending" aria-hidden="true">Calling…</span>
+                      <span class="ui-swap__done">Called 13 Nov</span>
+                    </p>
+                  </div>
+                  <span class="pill pill--green pill--dot"><span class="pill__dot"></span><span data-confirmed>2</span>&nbsp;of 2 confirmed</span>
+                </div>
+              </div>
+            </div>
+            <div class="step__body">
+              <span class="step__tag">Step 3</span>
+              <h3 class="step__title">References confirmed</h3>
+              <p class="step__text">Two referees answer a short, verified check by phone.</p>
+            </div>
+          </li>
+
+          <!-- Step 4 -->
+          <li class="step">
+            <div class="step__panel" style="--panel: var(--green-500)">
+              <span class="step__texture" aria-hidden="true"></span>
+              <span class="confetti" aria-hidden="true"></span>
+              <div class="step__ui ui-stack">
+                <div class="ui-card ui-live">
+                  <div class="ui-live__row">
+                    <p class="ui-live__label">Profile live</p>
+                    <span class="pill pill--live">Live</span>
+                  </div>
+                  <p class="ui-live__number" data-count="38">38</p>
+                  <p class="ui-live__caption">employers viewed it this week</p>
+                </div>
+                <div class="ui-card ui-pills">
+                  <span class="pill pill--green"><img src="/assets/verify/tick.svg" width="14" height="14" alt="" />Licence</span>
+                  <span class="pill pill--green"><img src="/assets/verify/tick.svg" width="14" height="14" alt="" />ID</span>
+                  <span class="pill pill--green">✓ 2 refs</span>
+                </div>
+              </div>
+            </div>
+            <div class="step__body">
+              <span class="step__tag">Step 4</span>
+              <h3 class="step__title">Profile goes live</h3>
+              <p class="step__text">The profile goes live with every check and its date already on it.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ============ RECENTLY VERIFIED ============ -->
+      <section class="recent" id="featured" data-anim="recent">
+        <div class="recent__inner">
+          <div class="recent__head">
+            <div class="recent__intro">
+              <p class="section-head__eyebrow">Featured Profiles</p>
+              <h2 class="section-head__title">Recently verified professionals</h2>
+              <p class="section-head__lead">
+                Credentials, work history and double references confirmed.<br />
+                Names are shared once they accept your request
+              </p>
+            </div>
+            <a href="#" class="btn-outline-lg"><span>See all professionals on Hilora</span></a>
+          </div>
+
+          <div class="pro-grid">
+            <article class="pro-card">
+              <div class="pro-card__banner">
+                <div class="pro-card__panel"><span class="pro-card__texture" aria-hidden="true"></span></div>
+                <div class="pro-card__banner-row">
+                  <img class="pro-card__avatar" src="/assets/profiles/avatar-finance.jpg" width="80" height="80" alt="" />
+                  <span class="pro-card__verified"><img src="/assets/profiles/icon-verified.svg" width="19" height="19" alt="" />Verified</span>
+                </div>
+              </div>
+              <div class="pro-card__content">
+                <div class="pro-card__body">
+                  <div class="pro-card__copy">
+                    <div class="pro-card__name">
+                      <h3>A.</h3>
+                      <span class="pro-card__anon">Anonymous</span>
+                    </div>
+                    <p class="pro-card__title">Chartered Accountant</p>
+                    <p class="pro-card__meta">Victoria Island, Lagos · 8 yrs experience</p>
+                  </div>
+                  <ul class="pro-card__chips">
+                    <li>ICAN</li>
+                    <li>ACCA</li>
+                    <li>B.Sc. Accounting</li>
+                  </ul>
+                </div>
+                <div class="pro-card__actions">
+                  <a href="#" class="pro-card__view">View profile</a>
+                  <button type="button" class="save-btn" aria-pressed="false">
+                    <svg class="save-btn__icon" width="13" height="17.4" viewBox="0 0 11.58 15.5" aria-hidden="true">
+                      <path d="M0.75 0.75H10.83V14.75L5.79 10.55L0.75 14.75V0.75Z" stroke-width="1.5" stroke-linejoin="round" />
+                    </svg>
+                    <span class="save-btn__label">Save</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="pro-card">
+              <div class="pro-card__banner">
+                <div class="pro-card__panel"><span class="pro-card__texture" aria-hidden="true"></span></div>
+                <div class="pro-card__banner-row">
+                  <img class="pro-card__avatar" src="/assets/profiles/avatar-healthcare.jpg" width="80" height="80" alt="" />
+                  <span class="pro-card__verified"><img src="/assets/profiles/icon-verified.svg" width="19" height="19" alt="" />Verified</span>
+                </div>
+              </div>
+              <div class="pro-card__content">
+                <div class="pro-card__body">
+                  <div class="pro-card__copy">
+                    <div class="pro-card__name">
+                      <h3>K.</h3>
+                      <span class="pro-card__anon">Anonymous</span>
+                    </div>
+                    <p class="pro-card__title">Family Physician</p>
+                    <p class="pro-card__meta">Ikeja, Lagos · 11 yrs experience</p>
+                  </div>
+                  <ul class="pro-card__chips">
+                    <li>MDCN</li>
+                    <li>MBBS</li>
+                    <li>FWACP</li>
+                  </ul>
+                </div>
+                <div class="pro-card__actions">
+                  <a href="#" class="pro-card__view">View profile</a>
+                  <button type="button" class="save-btn" aria-pressed="false">
+                    <svg class="save-btn__icon" width="13" height="17.4" viewBox="0 0 11.58 15.5" aria-hidden="true">
+                      <path d="M0.75 0.75H10.83V14.75L5.79 10.55L0.75 14.75V0.75Z" stroke-width="1.5" stroke-linejoin="round" />
+                    </svg>
+                    <span class="save-btn__label">Save</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="pro-card">
+              <div class="pro-card__banner">
+                <div class="pro-card__panel"><span class="pro-card__texture" aria-hidden="true"></span></div>
+                <div class="pro-card__banner-row">
+                  <img class="pro-card__avatar" src="/assets/profiles/avatar-legal.jpg" width="80" height="80" alt="" />
+                  <span class="pro-card__verified"><img src="/assets/profiles/icon-verified.svg" width="19" height="19" alt="" />Verified</span>
+                </div>
+              </div>
+              <div class="pro-card__content">
+                <div class="pro-card__body">
+                  <div class="pro-card__copy">
+                    <div class="pro-card__name">
+                      <h3>O.</h3>
+                      <span class="pro-card__anon">Anonymous</span>
+                    </div>
+                    <p class="pro-card__title">Barrister &amp; Solicitor</p>
+                    <p class="pro-card__meta">Abuja · 4 yrs experience</p>
+                  </div>
+                  <ul class="pro-card__chips">
+                    <li>NBA</li>
+                    <li>LL.B</li>
+                    <li>B.L</li>
+                  </ul>
+                </div>
+                <div class="pro-card__actions">
+                  <a href="#" class="pro-card__view">View profile</a>
+                  <button type="button" class="save-btn" aria-pressed="false">
+                    <svg class="save-btn__icon" width="13" height="17.4" viewBox="0 0 11.58 15.5" aria-hidden="true">
+                      <path d="M0.75 0.75H10.83V14.75L5.79 10.55L0.75 14.75V0.75Z" stroke-width="1.5" stroke-linejoin="round" />
+                    </svg>
+                    <span class="save-btn__label">Save</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="pro-card">
+              <div class="pro-card__banner">
+                <div class="pro-card__panel"><span class="pro-card__texture" aria-hidden="true"></span></div>
+                <div class="pro-card__banner-row">
+                  <img class="pro-card__avatar" src="/assets/profiles/avatar-energy.jpg" width="80" height="80" alt="" />
+                  <span class="pro-card__verified"><img src="/assets/profiles/icon-verified.svg" width="19" height="19" alt="" />Verified</span>
+                </div>
+              </div>
+              <div class="pro-card__content">
+                <div class="pro-card__body">
+                  <div class="pro-card__copy">
+                    <div class="pro-card__name">
+                      <h3>N.</h3>
+                      <span class="pro-card__anon">Anonymous</span>
+                    </div>
+                    <p class="pro-card__title">HSE Officer, Oil &amp; Gas</p>
+                    <p class="pro-card__meta">Port Harcourt · 9 yrs experience</p>
+                  </div>
+                  <ul class="pro-card__chips">
+                    <li>NEBOSH</li>
+                    <li>ISO 45001</li>
+                    <li>B.Eng.</li>
+                  </ul>
+                </div>
+                <div class="pro-card__actions">
+                  <a href="#" class="pro-card__view">View profile</a>
+                  <button type="button" class="save-btn" aria-pressed="false">
+                    <svg class="save-btn__icon" width="13" height="17.4" viewBox="0 0 11.58 15.5" aria-hidden="true">
+                      <path d="M0.75 0.75H10.83V14.75L5.79 10.55L0.75 14.75V0.75Z" stroke-width="1.5" stroke-linejoin="round" />
+                    </svg>
+                    <span class="save-btn__label">Save</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ WHAT MAKES US DIFFERENT ============ -->
+      <section class="different" id="different" data-anim="different">
+        <div class="different__inner">
+          <div class="different__head">
+            <p class="section-head__eyebrow">Only on Hilora</p>
+            <h2 class="section-head__title">What makes us different</h2>
+          </div>
+
+          <div class="different__body">
+            <ol class="features">
+            <li class="feature is-open">
+              <div class="feature__box">
+                <button type="button" class="feature__row" id="feature-01" aria-expanded="true" aria-controls="feature-panel-01">
+                  <span class="feature__num">01</span>
+                  <span class="feature__title">Hilora Scout bounties</span>
+                  <img class="feature__plus" src="/assets/different/plus.svg" width="20" height="20" alt="" />
+                </button>
+                <div class="feature__panel" id="feature-panel-01" role="region" aria-labelledby="feature-01">
+                  <p class="feature__desc">HR professionals hunt BLACK roles and get paid when their candidate is hired.</p>
+                  <a href="#" class="feature__link">Learn more →</a>
+                </div>
+              </div>
+              <div class="feature__progress" aria-hidden="true"><span></span></div>
+            </li>
+            <li class="feature">
+              <div class="feature__box">
+                <button type="button" class="feature__row" id="feature-02" aria-expanded="false" aria-controls="feature-panel-02">
+                  <span class="feature__num">02</span>
+                  <span class="feature__title">Stealth mode</span>
+                  <img class="feature__plus" src="/assets/different/plus.svg" width="20" height="20" alt="" />
+                </button>
+                <div class="feature__panel" id="feature-panel-02" role="region" aria-labelledby="feature-02">
+                  <p class="feature__desc">Senior people stay hidden. They’re alerted privately and choose which employers see them.</p>
+                  <a href="#" class="feature__link">Learn more →</a>
+                </div>
+              </div>
+              <div class="feature__progress" aria-hidden="true"><span></span></div>
+            </li>
+            <li class="feature">
+              <div class="feature__box">
+                <button type="button" class="feature__row" id="feature-03" aria-expanded="false" aria-controls="feature-panel-03">
+                  <span class="feature__num">03</span>
+                  <span class="feature__title">Escrow for contractors</span>
+                  <img class="feature__plus" src="/assets/different/plus.svg" width="20" height="20" alt="" />
+                </button>
+                <div class="feature__panel" id="feature-panel-03" role="region" aria-labelledby="feature-03">
+                  <p class="feature__desc">Every pay is held safely and released only when you confirm that the job is done.</p>
+                  <a href="#" class="feature__link">Learn more →</a>
+                </div>
+              </div>
+              <div class="feature__progress" aria-hidden="true"><span></span></div>
+            </li>
+            <li class="feature">
+              <div class="feature__box">
+                <button type="button" class="feature__row" id="feature-04" aria-expanded="false" aria-controls="feature-panel-04">
+                  <span class="feature__num">04</span>
+                  <span class="feature__title">Trust dossier</span>
+                  <img class="feature__plus" src="/assets/different/plus.svg" width="20" height="20" alt="" />
+                </button>
+                <div class="feature__panel" id="feature-panel-04" role="region" aria-labelledby="feature-04">
+                  <p class="feature__desc">ID, CAC, credentials and 2 reference scores, ready the moment you open a profile.</p>
+                  <a href="#" class="feature__link">Learn more →</a>
+                </div>
+              </div>
+              <div class="feature__progress" aria-hidden="true"><span></span></div>
+            </li>
+            <li class="feature">
+              <div class="feature__box">
+                <button type="button" class="feature__row" id="feature-05" aria-expanded="false" aria-controls="feature-panel-05">
+                  <span class="feature__num">05</span>
+                  <span class="feature__title">Verified graduate pipeline</span>
+                  <img class="feature__plus" src="/assets/different/plus.svg" width="20" height="20" alt="" />
+                </button>
+                <div class="feature__panel" id="feature-panel-05" role="region" aria-labelledby="feature-05">
+                  <p class="feature__desc">Checked First Class and 2:1 graduates and NYSC corps members, free to view.</p>
+                  <a href="#" class="feature__link">Learn more →</a>
+                </div>
+              </div>
+              <div class="feature__progress" aria-hidden="true"><span></span></div>
+            </li>
+            <li class="feature">
+              <div class="feature__box">
+                <button type="button" class="feature__row" id="feature-06" aria-expanded="false" aria-controls="feature-panel-06">
+                  <span class="feature__num">06</span>
+                  <span class="feature__title">Replacement guarantee</span>
+                  <img class="feature__plus" src="/assets/different/plus.svg" width="20" height="20" alt="" />
+                </button>
+                <div class="feature__panel" id="feature-panel-06" role="region" aria-labelledby="feature-06">
+                  <p class="feature__desc">If a BLACK hire leaves in probation, we find a replacement at no extra cost.</p>
+                  <a href="#" class="feature__link">Learn more →</a>
+                </div>
+              </div>
+              <div class="feature__progress" aria-hidden="true"><span></span></div>
+            </li>
+            </ol>
+
+            <div class="preview" aria-hidden="true">
+              <div class="preview__stage">
+                <span class="preview__texture"></span>
+            <!-- 01 Scout bounties -->
+            <div class="pv is-active" data-color="#3f74d8">
+              <div class="pv__photo pv__photo--a"><img src="/assets/different/scout-photo.jpg" alt="" style="left: -221px; width: 785px; height: 524px" /></div>
+              <div class="pv-card" style="right: 32px; top: 126px; width: 324px; gap: 14px">
+                <div class="pv-card__group">
+                  <p class="pv-label">ROLE YOU’RE SCOUTING FOR</p>
+                  <div>
+                    <p class="pv-strong">Senior Treasury Analyst</p>
+                    <p class="pv-muted">Tier-2 bank, Lagos. Client name kept private</p>
+                  </div>
+                </div>
+                <img class="pv-dash" src="/assets/different/line-dashed.svg" width="268" height="1" alt="" />
+                <div class="pv-split"><p class="pv-muted">Bounty if your candidate is hired</p><p class="pv-amount" data-amount="350000">₦350,000</p></div>
+              </div>
+              <div class="pv-card" style="right: 32px; top: 292px; width: 324px; gap: 8px">
+                <p class="pv-label">YOUR CANDIDATE FOR THIS ROLE</p>
+                <p class="pv-strong">Chinedu O.</p>
+                <div class="pv-stages">
+                  <div class="pv-stage is-done"><span class="pv-stage__bar"><i></i></span><span>Referred</span></div>
+                  <div class="pv-stage is-current"><span class="pv-stage__bar"><i></i></span><span>Interviewing</span></div>
+                  <div class="pv-stage"><span class="pv-stage__bar"><i></i></span><span>Hired</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 02 Stealth mode -->
+            <div class="pv" data-color="#363b48">
+              <div class="pv__photo pv__photo--b"><img src="/assets/different/stealth-photo.jpg" alt="" style="left: 0; width: 785px; height: 524px; transform: scaleX(-1)" /></div>
+              <div class="pv-card pv-toggle-card" style="left: 346px; top: 201px; width: 328px">
+                <div class="pv-toggle-card__copy">
+                  <p class="pv-toggle-card__title">Make your profile visible to employers</p>
+                  <p class="pv-toggle-card__sub">Only you will see your profile</p>
+                </div>
+                <span class="pv-toggle" aria-hidden="true"><i></i></span>
+              </div>
+              <div class="pv-card pv-person" style="left: 346px; top: 322.57px">
+                <div class="pv-person__photo"><img src="/assets/verify/tunde-bakare.jpg" alt="" /></div>
+                <div class="pv-person__copy">
+                  <div>
+                    <p class="pv-person__name">Tunde Bakare</p>
+                    <p class="pv-person__role">Chief Financial Officer, 18 Years</p>
+                  </div>
+                  <span class="pv-pill-grey">Hidden from search</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 03 Escrow (photo is a stand-in until the Figma image is exported) -->
+            <div class="pv" data-color="#1f8a5c">
+              <div class="pv__photo"><img class="is-cover" src="/assets/industries/energy.jpg" alt="" /></div>
+              <div class="pv-card" style="left: 356px; top: 50px; width: 300px; gap: 8px">
+                <p class="pv-label">ESCROW RECEIPT</p>
+                <div class="pv-split"><p class="pv-big">₦185,000</p><span class="pv-tag">PAYMENT HELD</span></div>
+                <img class="pv-dash" src="/assets/different/line-dashed.svg" width="234" height="1" alt="" />
+                <p class="pv-note">Payment gets released into contractor’s account when you confirm</p>
+              </div>
+              <div class="pv-card pv-timeline" style="left: 19px; top: 316px; width: 320px">
+                <div class="pv-step is-done"><i></i><div><p class="pv-strong-sm">Contractor marked done</p><p class="pv-muted-sm">Sat 21 Nov, 5:10pm</p></div></div>
+                <div class="pv-step is-current"><i></i><div><p class="pv-strong-sm">You confirm the work</p><p class="pv-muted-sm">Within 48 hours</p></div></div>
+                <div class="pv-step"><i></i><div><p class="pv-strong-sm">Contractor is paid</p><p class="pv-muted-sm">Same day</p></div></div>
+              </div>
+            </div>
+
+            <!-- 04 Trust dossier (photo is a stand-in) -->
+            <div class="pv" data-color="#5a5fd6">
+              <div class="pv__photo"><img class="is-cover" src="/assets/industries/hr.jpg" alt="" /></div>
+              <div class="pv-card pv-dossier" style="left: 312px; top: 128px; width: 340px">
+                <img class="pv-dossier__avatar" src="/assets/profiles/avatar-finance.jpg" alt="" />
+                <div>
+                  <p class="pv-dossier__name">Adebusola Joyce</p>
+                  <p class="pv-muted">Chartered Accountant, 9 Years</p>
+                </div>
+                <div class="pv-checks">
+                  <div class="pv-check"><svg class="ok-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" /><path d="M4.6 8.2l2.2 2.2 4.6-4.8" /></svg><div><p>ID</p><span>NIN matched</span></div></div>
+                  <div class="pv-check"><svg class="ok-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" /><path d="M4.6 8.2l2.2 2.2 4.6-4.8" /></svg><div><p>CAC</p><span>RC 1482301</span></div></div>
+                  <div class="pv-check"><svg class="ok-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" /><path d="M4.6 8.2l2.2 2.2 4.6-4.8" /></svg><div><p>Credentials</p><span>ICAN checked</span></div></div>
+                  <div class="pv-check"><svg class="ok-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" /><path d="M4.6 8.2l2.2 2.2 4.6-4.8" /></svg><div><p>References</p><span>2 of 2 scored</span></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 05 Graduate pipeline (photo + NYSC logo are stand-ins) -->
+            <div class="pv" data-color="#f2583a">
+              <div class="pv__photo"><img class="is-cover" src="/assets/industries/technology.jpg" alt="" /></div>
+              <div class="pv-card" style="left: 372px; top: 118px; width: 288px; gap: 4px">
+                <p class="pv-label-blue">UNILAG degree certificate</p>
+                <p class="pv-strong">First Class</p>
+                <p class="pv-muted-sm">B.Sc. Actuarial Science</p>
+                <div class="pv-chips"><span class="pv-chip"><svg class="ok-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" /><path d="M4.6 8.2l2.2 2.2 4.6-4.8" /></svg>Confirmed with UNILAG</span><span class="pv-chip"><svg class="ok-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" /><path d="M4.6 8.2l2.2 2.2 4.6-4.8" /></svg>NYSC</span></div>
+              </div>
+              <div class="pv-card" style="left: 372px; top: 268px; width: 288px; gap: 8px">
+                <span class="pv-emblem" aria-hidden="true">NYSC</span>
+                <p class="pv-cert"><strong>NYSC Certificate Of National Service</strong> Completed 2025</p>
+                <div class="pv-chips"><span class="pv-chip"><svg class="ok-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" /><path d="M4.6 8.2l2.2 2.2 4.6-4.8" /></svg>Certificate checked 10 Nov</span></div>
+              </div>
+            </div>
+
+            <!-- 06 Replacement guarantee (photo is a stand-in) -->
+            <div class="pv" data-color="#3f74d8">
+              <div class="pv__photo"><img class="is-cover" src="/assets/industries/sales.jpg" alt="" /></div>
+              <div class="pv-card" style="left: 320px; top: 360px; width: 330px; gap: 6px">
+                <p class="pv-label">REPLACEMENT GUARANTEE</p>
+                <p class="pv-big"><span data-days>7</span> working days</p>
+                <p class="pv-muted">to a new referenced shortlist</p>
+                <img class="pv-dash" src="/assets/different/line-dashed.svg" width="274" height="1" alt="" />
+                <div class="pv-split"><p class="pv-muted">Extra cost</p><p class="pv-amount">₦0</p></div>
+              </div>
+            </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PICK A FIELD ============ -->
+      <section class="fields" id="fields" data-anim="fields">
+        <div class="fields__inner">
+          <div class="fields__head">
+            <p class="section-head__eyebrow">Browse by field</p>
+            <h2 class="section-head__title fields__title">Pick a field / industry to start searching</h2>
+          </div>
+          <div class="fields__grid">
+            <a href="#" class="field">
+              <img class="field__img" src="/assets/industries/finance.jpg" alt="" style="object-position: 50% 50%" />
+              <span class="field__copy">
+                <span class="field__name">Finance &amp; Accounting<img class="field__arrow" src="/assets/industries/arrow-up-right.svg" width="20" height="20" alt="" /></span>
+                <span class="field__count"><span data-count="6">6</span> verified profiles</span>
+              </span>
+            </a>
+            <a href="#" class="field">
+              <img class="field__img" src="/assets/industries/technology.jpg" alt="" style="object-position: 100% 50%" />
+              <span class="field__copy">
+                <span class="field__name">Technology &amp; Engineering<img class="field__arrow" src="/assets/industries/arrow-up-right.svg" width="20" height="20" alt="" /></span>
+                <span class="field__count"><span data-count="5">5</span> verified profiles</span>
+              </span>
+            </a>
+            <a href="#" class="field">
+              <img class="field__img" src="/assets/industries/healthcare.jpg" alt="" style="object-position: 50% 36%" />
+              <span class="field__copy">
+                <span class="field__name">Healthcare<img class="field__arrow" src="/assets/industries/arrow-up-right.svg" width="20" height="20" alt="" /></span>
+                <span class="field__count"><span data-count="4">4</span> verified profiles</span>
+              </span>
+            </a>
+            <a href="#" class="field">
+              <img class="field__img" src="/assets/industries/legal.jpg" alt="" style="object-position: 50% 50%" />
+              <span class="field__copy">
+                <span class="field__name">Legal<img class="field__arrow" src="/assets/industries/arrow-up-right.svg" width="20" height="20" alt="" /></span>
+                <span class="field__count"><span data-count="1">1</span> verified profile</span>
+              </span>
+            </a>
+            <a href="#" class="field">
+              <img class="field__img" src="/assets/industries/sales.jpg" alt="" style="object-position: 50% 50%" />
+              <span class="field__copy">
+                <span class="field__name">Sales &amp; Marketing<img class="field__arrow" src="/assets/industries/arrow-up-right.svg" width="20" height="20" alt="" /></span>
+                <span class="field__count"><span data-count="2">2</span> verified profiles</span>
+              </span>
+            </a>
+            <a href="#" class="field">
+              <img class="field__img" src="/assets/industries/hr.jpg" alt="" style="object-position: 50% 50%" />
+              <span class="field__copy">
+                <span class="field__name">Human Resources<img class="field__arrow" src="/assets/industries/arrow-up-right.svg" width="20" height="20" alt="" /></span>
+                <span class="field__count"><span data-count="2">2</span> verified profiles</span>
+              </span>
+            </a>
+            <a href="#" class="field">
+              <img class="field__img" src="/assets/industries/energy.jpg" alt="" style="object-position: 50% 50%" />
+              <span class="field__copy">
+                <span class="field__name">Oil, Gas &amp; Energy<img class="field__arrow" src="/assets/industries/arrow-up-right.svg" width="20" height="20" alt="" /></span>
+                <span class="field__count"><span data-count="6">6</span> verified profiles</span>
+              </span>
+            </a>
+            <a href="#" class="field field--all">
+              <img class="field__img" src="/assets/industries/finance.jpg" alt="" />
+              <span class="field__all">SEE ALL<img class="field__arrow" src="/assets/industries/arrow-up-right.svg" width="20" height="20" alt="" /></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ GET STARTED (CTA) ============ -->
+      <section class="cta" id="get-started" data-anim="cta">
+        <div class="cta__inner">
+          <div class="cta__head">
+            <p class="section-head__eyebrow">Get Started Today</p>
+            <h2 class="section-head__title">Hiring or getting hired? Start here.</h2>
+          </div>
+
+          <div class="cta__grid">
+            <article class="cta-card cta-card--employers">
+              <div class="cta-card__copy">
+                <p class="cta-card__eyebrow">For employers</p>
+                <h3 class="cta-card__title">Hire verified<br />talent</h3>
+                <p class="cta-card__text">Skip the ads. Browse people already checked.</p>
+              </div>
+              <a href="#" class="cta-btn cta-btn--coral">Browse professionals</a>
+
+              <!-- Browser-style mock of search results -->
+              <div class="mock" aria-hidden="true">
+                <div class="mock__bar"><i></i><i></i><i></i></div>
+                <div class="mock__body">
+                  <p class="mock__title">Accountants in Lagos · <span data-count="86">86</span> verified</p>
+                  <div class="mock__list">
+                    <div class="mock__track">
+                      <div class="mock__row">
+                        <img src="/assets/cta/avatar-chinedu.jpg" alt="" />
+                        <div><p class="mock__name">Chinedu Okafor</p><p class="mock__role">Chartered Accountant · 9 yrs</p></div>
+                      </div>
+                      <div class="mock__row">
+                        <img src="/assets/profiles/avatar-finance.jpg" alt="" />
+                        <div><p class="mock__name">Aisha Bello</p><p class="mock__role">Financial Accountant · 6 yrs</p></div>
+                      </div>
+                      <div class="mock__row">
+                        <img src="/assets/cta/avatar-tolu.jpg" alt="" />
+                        <div><p class="mock__name">Tolu Adeyemi</p><p class="mock__role">Audit Associate · 4 yrs</p></div>
+                      </div>
+                      <div class="mock__row">
+                        <img src="/assets/cta/avatar-emeka.jpg" alt="" />
+                        <div><p class="mock__name">Emeka Nwosu</p><p class="mock__role">Tax Consultant · 11 yrs</p></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="cta-card cta-card--pros">
+              <div class="cta-card__copy">
+                <p class="cta-card__eyebrow">For professionals</p>
+                <h3 class="cta-card__title">Get verified</h3>
+                <p class="cta-card__text">Verify once. Get found by every employer on Hilora.</p>
+              </div>
+              <a href="#" class="cta-btn cta-btn--navy">Create your profile</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer" data-anim="footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__top">
+          <div class="site-footer__brand">
+            <a href="/" class="site-footer__logo" aria-label="Hilora home">
+              <img src="/assets/hilora-logo.svg" width="130" height="42" alt="Hilora Staffing Solutions" />
+            </a>
+            <p class="site-footer__tagline">Verified professionals in Lagos,<br />discovered directly.</p>
+            <address class="site-footer__contact">
+              <span>12 Anifowoshe Street, Victoria Island, Lagos,<br />Nigeria</span>
+              <a href="tel:+2348163672745">+234 816 367 2745</a>
+              <a href="mailto:info@hilora.co">info@hilora.co</a>
+            </address>
+          </div>
+
+          <nav class="site-footer__nav" aria-label="Footer">
+            <div class="site-footer__col">
+              <p class="site-footer__heading">Product</p>
+              <a href="#">Search Talent</a>
+              <a href="#">For Professionals</a>
+              <a href="#">For Employers</a>
+              <a href="#how-it-works">How it works</a>
+              <a href="#">International Oil &amp; Gas</a>
+            </div>
+            <div class="site-footer__col">
+              <p class="site-footer__heading">Company</p>
+              <a href="#">About</a>
+              <a href="#">Contact</a>
+            </div>
+            <div class="site-footer__col">
+              <p class="site-footer__heading">Legal</p>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+            </div>
+          </nav>
+        </div>
+        <p class="site-footer__copy">© 2026 Hilora Staffing Solutions. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

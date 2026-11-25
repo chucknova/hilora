@@ -142,62 +142,116 @@
 /* photos are exported from Figma already cropped to the frame */
 .pv__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
-/* ---------- Preview cards ---------- */
+/* ---------- Preview cards ----------
+   All card text is Figtree. Card headers use tight tracking:
+   -0.02em for medium headers, -0.04em for big figures. */
 .pv-card {
   position: absolute;
   display: flex;
   flex-direction: column;
   padding: 14px 16px 16px;
-  border-radius: 8px;
+  border-radius: 10px;
   background: var(--neutral-0);
   box-shadow: 0 6px 20px rgba(13, 13, 94, 0.08);
   font-family: var(--font-ui);
   color: var(--navy-800);
 }
 .pv-card__group { display: flex; flex-direction: column; gap: 8px; }
-.pv-label { font-weight: 600; font-size: 11.5px; line-height: 1.4; letter-spacing: 0.8px; color: var(--text-muted); }
-.pv-label-blue { font-weight: 600; font-size: 12.5px; line-height: 1.4; color: var(--blue-700); }
-.pv-strong { font-weight: 700; font-size: 16.5px; line-height: 1.35; }
-.pv-strong-sm { font-weight: 700; font-size: 14.5px; line-height: 1.35; }
+.pv-label { font-weight: 600; font-size: 11.5px; line-height: 1.4; letter-spacing: 0.08em; color: var(--text-muted); }
+.pv-label-blue { font-weight: 600; font-size: 13px; line-height: 1.4; color: var(--blue-700); }
+.pv-strong { font-weight: 700; font-size: 17px; line-height: 1.3; letter-spacing: -0.02em; }
 .pv-muted { font-size: 13.5px; line-height: 1.4; color: var(--text-muted); }
-.pv-muted-sm { font-size: 12.5px; line-height: 1.4; color: var(--text-muted); }
-.pv-note { font-size: 12.5px; line-height: 1.45; color: var(--text-muted); }
-.pv-amount { font-weight: 800; font-size: 15px; line-height: 1.4; font-variant-numeric: tabular-nums; }
-.pv-big { font-weight: 800; font-size: 26px; line-height: 1.2; letter-spacing: -0.3px; font-variant-numeric: tabular-nums; }
-.pv-split { display: flex; align-items: center; justify-content: space-between; gap: 8px; white-space: nowrap; }
+.pv-note { font-size: 13px; line-height: 1.45; color: var(--text-muted); }
+.pv-amount { font-weight: 800; font-size: 15px; line-height: 1.4; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.pv-big { font-weight: 800; font-size: 28px; line-height: 1.15; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+.pv-split { display: flex; align-items: center; justify-content: space-between; gap: 10px; white-space: nowrap; }
 .pv-dash { display: block; width: 100%; height: 1px; }
+
+/* text that swaps between two states (crossfaded by different.js) */
+.pv-swap { display: inline-grid; }
+.pv-swap > * { grid-area: 1 / 1; }
+.pv-swap__on { opacity: 0; }
+
 .pv-tag {
-  padding: 3px 7px;
-  border-radius: 3px;
+  padding: 4px 8px;
+  border-radius: 4px;
   background: var(--green-600);
   font-weight: 700;
-  font-size: 10.5px;
-  letter-spacing: 0.5px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
   color: var(--neutral-0);
+  justify-items: center;
 }
 
-/* 01 candidate progress */
+/* ----- 01 candidate progress ----- */
 .pv-stages { display: flex; gap: 4px; }
 .pv-stage { flex: 1; display: flex; flex-direction: column; gap: 6px; font-weight: 500; font-size: 12.5px; line-height: 1.4; color: #8a90a0; }
 .pv-stage:last-child { align-items: center; }
 .pv-stage__bar { display: block; width: 100%; height: 4px; border-radius: 2px; background: #dde1ea; overflow: hidden; }
 .pv-stage__bar i { display: block; height: 100%; width: 100%; transform-origin: left; transform: scaleX(0); }
-.pv-stage.is-done { color: var(--navy-800); }
-.pv-stage.is-done .pv-stage__bar i { background: #1f8a5b; transform: scaleX(1); }
-.pv-stage.is-current { color: var(--navy-800); font-weight: 700; }
-.pv-stage.is-current .pv-stage__bar i { background: #2361c8; transform: scaleX(1); }
+.pv-stage:nth-child(1) .pv-stage__bar i { background: #1f8a5b; }
+.pv-stage:nth-child(2) .pv-stage__bar i { background: #2361c8; }
+.pv-stage:nth-child(3) .pv-stage__bar i { background: #1f8a5b; }
+.pv-stage.is-done, .pv-stage.is-current { color: var(--navy-800); }
+.pv-stage.is-done .pv-stage__bar i, .pv-stage.is-current .pv-stage__bar i { transform: scaleX(1); }
+.pv-stage.is-current { font-weight: 700; }
 
-/* 02 stealth toggle + person */
+/* ----- 01 bounty confirmation (replaces the two cards) ----- */
+.pv-confirm {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22px 22px 20px;
+  border-radius: 14px;
+  background: var(--neutral-0);
+  box-shadow: 0 18px 40px rgba(8, 8, 63, 0.22);
+  font-family: var(--font-ui);
+  color: var(--navy-800);
+  opacity: 0;
+  visibility: hidden;
+}
+.pv-confirm__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: var(--green-500);
+  box-shadow: 0 0 0 6px #e5f3ec;
+}
+.pv-confirm__icon svg { width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.pv-confirm__amount {
+  margin-top: 4px;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.pv-confirm__text { margin-top: 10px; font-size: 14.5px; line-height: 1.45; color: var(--neutral-600); }
+.pv-confirm__pill {
+  margin-top: 16px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #fff1ec;
+  font-weight: 700;
+  font-size: 12.5px;
+  color: #c2391b;
+}
+
+/* ----- 02 stealth toggle + person ----- */
 .pv-toggle-card {
   flex-direction: row;
   align-items: center;
-  gap: 38.6px;
+  gap: 32px;
   padding: 16.76px 19.15px;
   border-radius: 9.58px;
   box-shadow: none;
 }
 .pv-toggle-card__copy { flex: 1; display: flex; flex-direction: column; gap: 8.58px; }
-.pv-toggle-card__title { font-weight: 700; font-size: 19.15px; line-height: normal; }
+.pv-toggle-card__title { font-weight: 700; font-size: 19px; line-height: 1.2; letter-spacing: -0.02em; }
 .pv-toggle-card__sub { font-size: 14.37px; line-height: 1.45; color: var(--text-muted); white-space: nowrap; }
 .pv-toggle {
   position: relative;
@@ -225,13 +279,12 @@
   border-radius: 9.58px;
   box-shadow: 0 4.79px 14.37px rgba(13, 13, 94, 0.08);
 }
-.pv-person__photo { position: relative; width: 77.35px; height: 83.8px; border-radius: 12.89px; overflow: hidden; flex-shrink: 0; }
-.pv-person__photo img { position: absolute; left: -83.5%; top: -3.49%; width: 267%; height: 174.37%; max-width: none; }
+.pv-person__photo { width: 77.35px; height: 83.8px; border-radius: 12.89px; object-fit: cover; flex-shrink: 0; }
 .pv-person__copy { display: flex; flex-direction: column; gap: 9.58px; align-items: flex-start; }
 .pv-person__copy > div { display: flex; flex-direction: column; gap: 4.79px; }
-.pv-person__name { font-family: var(--font-sans); font-weight: 700; font-size: 17.96px; line-height: 1.4; letter-spacing: -0.36px; }
-.pv-person__role { font-family: var(--font-sans); font-size: 13.17px; line-height: 1.4; color: var(--text-muted); white-space: nowrap; }
-.pv-pill-grey {
+.pv-person__name { font-weight: 700; font-size: 18px; line-height: 1.3; letter-spacing: -0.02em; }
+.pv-person__role { font-size: 13.5px; line-height: 1.4; color: var(--text-muted); white-space: nowrap; }
+.pv-pill-state {
   padding: 4.79px 11.97px;
   border-radius: 999px;
   background: #f1f2f6;
@@ -241,59 +294,102 @@
   color: var(--neutral-600);
 }
 
-/* 03 escrow timeline */
-.pv-timeline { gap: 14px; padding: 16px 18px; }
-.pv-step { display: flex; align-items: flex-start; gap: 12px; }
-.pv-step > i {
-  width: 9px;
-  height: 9px;
-  margin-top: 5px;
+/* ----- 03 escrow ----- */
+.pv-receipt { gap: 10px; padding: 16px 18px 18px; }
+.pv-timeline { position: relative; gap: 18px; padding: 20px 20px 22px; }
+/* rail connecting the three dots; its fill grows as steps complete */
+.pv-timeline__rail {
+  position: absolute;
+  left: 25px;
+  top: 30px;
+  bottom: 44px;
+  width: 2px;
+  border-radius: 1px;
+  background: #e4e7ee;
+}
+.pv-timeline__rail i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--green-500);
+  transform-origin: top;
+  transform: scaleY(0.38);
+}
+.pv-step { position: relative; display: flex; align-items: flex-start; gap: 14px; }
+.pv-step__dot {
+  position: relative;
+  z-index: 1;
+  width: 12px;
+  height: 12px;
+  margin-top: 4px;
   flex-shrink: 0;
   border-radius: 50%;
   background: #dde1ea;
+  box-shadow: 0 0 0 3px var(--neutral-0);
 }
-.pv-step.is-done > i { background: var(--green-500); }
-.pv-step.is-current > i { background: var(--coral-500); }
-.pv-step:not(.is-done):not(.is-current) .pv-strong-sm { color: #8a90a0; font-weight: 500; }
+.pv-step.is-done .pv-step__dot { background: var(--green-500); }
+.pv-step.is-current .pv-step__dot { background: var(--coral-500); }
+.pv-step__title { font-weight: 700; font-size: 16px; line-height: 1.3; letter-spacing: -0.02em; }
+.pv-step__sub { margin-top: 2px; font-size: 13.5px; line-height: 1.4; color: var(--text-muted); }
+.pv-step:not(.is-done):not(.is-current) .pv-step__title { color: #8a90a0; font-weight: 600; }
+.pv-confirm-btn {
+  display: inline-flex;
+  margin-top: 10px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: var(--navy-800);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.2;
+  color: var(--neutral-0);
+  visibility: hidden; /* only shown while the story plays */
+}
 
-/* 04 trust dossier */
-.pv-dossier { gap: 12px; padding: 14px; }
-.pv-dossier__avatar { width: 40px; height: 40px; border-radius: 6px; object-fit: cover; }
-.pv-dossier__name { font-weight: 700; font-size: 18px; line-height: 1.3; }
-.pv-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.pv-check {
+/* ----- 04 trust dossier ----- */
+.pv-dossier { gap: 14px; padding: 18px; border-radius: 12px; }
+.pv-dossier__avatar { width: 52px; height: 52px; border-radius: 10px; object-fit: cover; }
+.pv-dossier__name { font-weight: 700; font-size: 20px; line-height: 1.25; letter-spacing: -0.02em; }
+.pv-dossier .pv-muted { margin-top: 2px; font-size: 14px; }
+
+/* green-outlined chips with the verified badge, as in the design */
+.pv-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.pv-badge {
   display: flex;
-  align-items: flex-start;
-  gap: 6px;
-  padding: 6px 8px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px 8px 10px;
   border: 1.5px solid var(--green-600);
-  border-radius: 6px;
+  border-radius: 8px;
+  background: var(--neutral-0);
 }
-.pv-check p { font-weight: 700; font-size: 13px; line-height: 1.3; }
-.pv-check span { font-size: 12px; line-height: 1.3; color: var(--text-muted); }
-.ok-icon { width: 15px; height: 15px; flex-shrink: 0; margin-top: 1px; }
-.ok-icon circle { fill: var(--green-600); }
-.ok-icon path { fill: none; stroke: #fff; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.pv-badge p { font-weight: 700; font-size: 14px; line-height: 1.2; letter-spacing: -0.01em; color: var(--green-600); }
+.pv-badge span { font-size: 12.5px; line-height: 1.3; color: #3f7d5f; }
+.i-badge { width: 20px; height: 20px; flex-shrink: 0; color: var(--green-600); }
 
-/* 05 graduate pipeline */
-.pv-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+/* ----- 05 graduate pipeline ----- */
+.pv-grad { gap: 4px; padding: 16px 18px 18px; border-radius: 12px; }
+.pv-grad .pv-strong { font-size: 20px; }
+.pv-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 .pv-chip {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 3px 7px;
-  border: 1.2px solid var(--green-600);
-  border-radius: 4px;
+  gap: 6px;
+  padding: 5px 10px 5px 8px;
+  border: 1.5px solid var(--green-600);
+  border-radius: 6px;
   font-weight: 600;
-  font-size: 11.5px;
+  font-size: 12.5px;
   line-height: 1.3;
-  color: var(--navy-800);
+  color: var(--green-600);
   white-space: nowrap;
 }
-.pv-chip .ok-icon { width: 13px; height: 13px; margin: 0; }
-.pv-emblem { width: 26px; height: 33px; }
-.pv-cert { font-size: 14.5px; line-height: 1.4; }
-.pv-cert strong { font-weight: 700; }
+.pv-chip .ok-icon, .pv-chip .i-badge { width: 16px; height: 16px; margin: 0; }
+.ok-icon { width: 16px; height: 16px; flex-shrink: 0; }
+.ok-icon circle { fill: var(--green-600); }
+.ok-icon path { fill: none; stroke: #fff; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.pv-emblem { width: 32px; height: 41px; margin-bottom: 10px; }
+.pv-cert { font-size: 16px; line-height: 1.35; color: var(--text-muted); }
+.pv-cert strong { font-weight: 700; letter-spacing: -0.02em; color: var(--navy-800); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1180px) {

@@ -223,13 +223,31 @@ off-screen. Clicking a feature opens it and restarts the timer.
 | 0.15 | new photo | wipes in from the right (`clip-path`, 0.8s `expo.inOut`) with a slow zoom from 1.12 → 1 |
 | 0.75 | new cards | rise 22px, 0.12s apart, then the feature's story plays |
 
+**Card type:** all preview card text is Figtree. Card headers use tight tracking:
+`-0.02em` for medium headers (names, titles), `-0.04em` for big figures (amounts).
+
 **Stories:**
 
-- **01 Scout bounties:** bounty counts ₦0 → ₦350,000; the Referred bar fills, then Interviewing.
-- **02 Stealth mode:** the toggle starts on (green), slides off; "Hidden from search" pops in.
-- **03 Escrow:** "PAYMENT HELD" stamps on; the three timeline dots light up in order.
-- **04 Trust dossier:** the four checks rise in and their ticks pop one by one.
-- **05 Graduate pipeline:** verification chips pop in; the NYSC emblem rotates in.
+- **01 Scout bounties:** the bounty counts up to ₦350,000; Chinedu's bars fill
+  Referred → Interviewing → **Hired** (Hired turns bold). Then both cards lift away
+  and a big **"Bounty paid"** confirmation rises in: green tick pops, ₦350,000 counts
+  up, "Chinedu O. got hired… your bounty is on its way", a small confetti burst, and
+  a pill: "Paid for scouting a BLACK role".
+- **02 Stealth mode:** the visibility toggle **loops on/off about every 2.75s**
+  (repeat: -1). When on: green track, "Employers can find your profile", pill
+  "Visible in search" (green). When off: grey, "Only you will see your profile",
+  "Hidden from search". The avatar is a crop of the man in the photo. The loop is
+  killed when another feature opens.
+- **03 Escrow:** ₦185,000 counts up and "PAYMENT HELD" stamps on; the timeline dots
+  pop in and the green rail grows to step 2. A **"Confirm work"** button appears
+  under "You confirm the work" while its dot pulses, then gets pressed (squeeze,
+  turns green, "Confirmed ✓"). Step 2 turns green, the rail fills down to
+  "Contractor is paid", whose dot lights up, and the receipt tag flips to
+  **RELEASED**. The rail is sized in JS from the first to the last dot.
+- **04 Trust dossier:** the four green-outlined chips (with the verified badge icon
+  from the design) rise in one by one; each badge spins in.
+- **05 Graduate pipeline:** degree chips pop in, the NYSC logo rotates in, then the
+  certificate chip and its badge land.
 - **06 Replacement guarantee:** "7 working days" counts up; "₦0" pops.
 
 **Scroll-in (once at 70% of the viewport):** eyebrow + title reveal, list rows slide

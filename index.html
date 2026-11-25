@@ -19,6 +19,10 @@
     <script type="module" src="/src/main.js"></script>
   </head>
   <body>
+    <!-- Icon sprite (verified badge from the Figma asset, recoloured via currentColor) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-verified" viewBox="0 0 16 16"><path d="M11.3362 2.06527L11.4122 2.21827L11.9892 3.75127C12.0342 3.87126 12.1292 3.96727 12.2502 4.01227L13.7302 4.56727C14.3802 4.81126 14.7292 5.50527 14.5562 6.16227L14.5142 6.29226L13.8262 7.81527C13.8 7.87341 13.7865 7.93648 13.7865 8.00027C13.7865 8.06405 13.8 8.12712 13.8262 8.18527L14.4792 9.62426C14.6165 9.92611 14.6369 10.2681 14.5366 10.5841C14.4363 10.9002 14.2224 11.1678 13.9362 11.3353L13.7832 11.4113L12.2502 11.9883C12.1908 12.0108 12.1367 12.0458 12.0918 12.0908C12.0468 12.1358 12.0118 12.1898 11.9892 12.2493L11.4342 13.7293C11.3178 14.04 11.0903 14.2965 10.7956 14.4491C10.501 14.6017 10.1602 14.6395 9.83924 14.5553L9.70924 14.5133L8.18624 13.8253C8.12809 13.799 8.06503 13.7855 8.00124 13.7855C7.93745 13.7855 7.87439 13.799 7.81624 13.8253L6.37724 14.4793C6.07528 14.6164 5.73321 14.6367 5.41716 14.5362C5.10112 14.4357 4.83356 14.2216 4.66624 13.9353L4.59024 13.7823L4.01324 12.2493C3.99066 12.1898 3.95572 12.1358 3.91073 12.0908C3.86574 12.0458 3.81172 12.0108 3.75224 11.9883L2.27224 11.4333C1.96151 11.3169 1.70503 11.0893 1.55244 10.7946C1.39985 10.5 1.36201 10.1592 1.44624 9.83827L1.48824 9.70827L2.17724 8.18527C2.20347 8.12712 2.21703 8.06405 2.21703 8.00027C2.21703 7.93648 2.20347 7.87341 2.17724 7.81527L1.52324 6.37627C1.38603 6.07442 1.3656 5.73243 1.4659 5.4164C1.56619 5.10037 1.78009 4.83275 2.06624 4.66527L2.21924 4.58927L3.75224 4.01227C3.81172 3.98968 3.86574 3.95475 3.91073 3.90976C3.95572 3.86477 3.99066 3.81075 4.01324 3.75127L4.56824 2.27127C4.68465 1.96054 4.91221 1.70405 5.20686 1.55146C5.50151 1.39887 5.84229 1.36103 6.16324 1.44527L6.29324 1.48727L7.81624 2.17627C7.87439 2.20249 7.93745 2.21605 8.00124 2.21605C8.06503 2.21605 8.12809 2.20249 8.18624 2.17627L9.62524 1.52227C9.92708 1.38506 10.2691 1.36462 10.5851 1.46492C10.9011 1.56521 11.1688 1.77911 11.3362 2.06527ZM10.1652 5.70527L6.97924 9.34826L5.81724 8.18427C5.77609 8.14125 5.72675 8.1069 5.67214 8.08321C5.61752 8.05952 5.55873 8.04698 5.4992 8.04633C5.43968 8.04567 5.38062 8.05691 5.3255 8.07939C5.27037 8.10187 5.22029 8.13513 5.1782 8.17722C5.13611 8.21932 5.10284 8.2694 5.08037 8.32452C5.05789 8.37964 5.04665 8.4387 5.0473 8.49823C5.04796 8.55775 5.0605 8.61655 5.08419 8.67116C5.10787 8.72578 5.14223 8.77511 5.18524 8.81627L6.68524 10.3163C6.72853 10.3595 6.78022 10.3933 6.83712 10.4157C6.89401 10.4381 6.9549 10.4486 7.01601 10.4466C7.07712 10.4445 7.13716 10.4299 7.19242 10.4037C7.24767 10.3775 7.29696 10.3403 7.33724 10.2943L10.8372 6.29427C10.9085 6.2043 10.9424 6.09037 10.932 5.97608C10.9216 5.86178 10.8676 5.75588 10.7812 5.6803C10.6948 5.60472 10.5827 5.56526 10.468 5.5701C10.3534 5.57493 10.2449 5.62269 10.1652 5.70527Z" fill="currentColor" /></symbol>
+    </svg>
     <!-- ============ HEADER ============ -->
     <header class="site-header" data-anim="header">
       <div class="site-header__inner">
@@ -643,6 +647,14 @@
                   <div class="pv-stage"><span class="pv-stage__bar"><i></i></span><span>Hired</span></div>
                 </div>
               </div>
+              <!-- shown by the story once "Hired" fills -->
+              <div class="pv-confirm" style="right: 32px; top: 150px; width: 324px">
+                <span class="pv-confirm__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9" /></svg></span>
+                <p class="pv-label">BOUNTY PAID</p>
+                <p class="pv-confirm__amount">₦350,000</p>
+                <p class="pv-confirm__text">Chinedu O. got hired as Senior Treasury Analyst. Your bounty is on its way to your account.</p>
+                <span class="pv-confirm__pill">Paid for scouting a BLACK role</span>
+              </div>
             </div>
 
             <!-- 02 Stealth mode -->
@@ -651,18 +663,18 @@
               <div class="pv-card pv-toggle-card" style="left: 346px; top: 201px; width: 328px">
                 <div class="pv-toggle-card__copy">
                   <p class="pv-toggle-card__title">Make your profile visible to employers</p>
-                  <p class="pv-toggle-card__sub">Only you will see your profile</p>
+                  <p class="pv-toggle-card__sub pv-swap"><span class="pv-swap__off">Only you will see your profile</span><span class="pv-swap__on" aria-hidden="true">Employers can find your profile</span></p>
                 </div>
                 <span class="pv-toggle" aria-hidden="true"><i></i></span>
               </div>
               <div class="pv-card pv-person" style="left: 346px; top: 322.57px">
-                <div class="pv-person__photo"><img src="/assets/verify/tunde-bakare.jpg" alt="" /></div>
+                <img class="pv-person__photo" src="/assets/different/avatar-stealth.jpg" alt="" />
                 <div class="pv-person__copy">
                   <div>
                     <p class="pv-person__name">Tunde Bakare</p>
                     <p class="pv-person__role">Chief Financial Officer, 18 Years</p>
                   </div>
-                  <span class="pv-pill-grey">Hidden from search</span>
+                  <span class="pv-pill-state pv-swap"><span class="pv-swap__off">Hidden from search</span><span class="pv-swap__on" aria-hidden="true">Visible in search</span></span>
                 </div>
               </div>
             </div>
@@ -670,33 +682,44 @@
             <!-- 03 Escrow -->
             <div class="pv" data-color="#1f8a5c">
               <div class="pv__photo pv__photo--wide"><img src="/assets/different/pv-03-escrow.jpg" alt="" /></div>
-              <div class="pv-card" style="left: 356px; top: 50px; width: 300px; gap: 8px">
+              <div class="pv-card pv-receipt" style="left: 330px; top: 36px; width: 330px">
                 <p class="pv-label">ESCROW RECEIPT</p>
-                <div class="pv-split"><p class="pv-big">₦185,000</p><span class="pv-tag">PAYMENT HELD</span></div>
-                <img class="pv-dash" src="/assets/different/line-dashed.svg" width="234" height="1" alt="" />
+                <div class="pv-split">
+                  <p class="pv-big" data-amount="185000">₦185,000</p>
+                  <span class="pv-tag pv-swap"><span class="pv-swap__off">PAYMENT HELD</span><span class="pv-swap__on" aria-hidden="true">RELEASED</span></span>
+                </div>
+                <img class="pv-dash" src="/assets/different/line-dashed.svg" width="268" height="1" alt="" />
                 <p class="pv-note">Payment gets released into contractor’s account when you confirm</p>
               </div>
-              <div class="pv-card pv-timeline" style="left: 19px; top: 316px; width: 320px">
-                <div class="pv-step is-done"><i></i><div><p class="pv-strong-sm">Contractor marked done</p><p class="pv-muted-sm">Sat 21 Nov, 5:10pm</p></div></div>
-                <div class="pv-step is-current"><i></i><div><p class="pv-strong-sm">You confirm the work</p><p class="pv-muted-sm">Within 48 hours</p></div></div>
-                <div class="pv-step"><i></i><div><p class="pv-strong-sm">Contractor is paid</p><p class="pv-muted-sm">Same day</p></div></div>
+              <div class="pv-card pv-timeline" style="left: 19px; top: 278px; width: 348px">
+                <span class="pv-timeline__rail" aria-hidden="true"><i></i></span>
+                <div class="pv-step is-done"><span class="pv-step__dot"></span><div><p class="pv-step__title">Contractor marked done</p><p class="pv-step__sub">Sat 21 Nov, 5:10pm</p></div></div>
+                <div class="pv-step is-current">
+                  <span class="pv-step__dot"></span>
+                  <div>
+                    <p class="pv-step__title">You confirm the work</p>
+                    <p class="pv-step__sub">Within 48 hours</p>
+                    <span class="pv-confirm-btn" aria-hidden="true"><span class="pv-swap"><span class="pv-swap__off">Confirm work</span><span class="pv-swap__on">Confirmed ✓</span></span></span>
+                  </div>
+                </div>
+                <div class="pv-step"><span class="pv-step__dot"></span><div><p class="pv-step__title">Contractor is paid</p><p class="pv-step__sub">Same day</p></div></div>
               </div>
             </div>
 
             <!-- 04 Trust dossier -->
             <div class="pv" data-color="#5a5fd6">
               <div class="pv__photo pv__photo--wide"><img src="/assets/different/pv-04-dossier.jpg" alt="" /></div>
-              <div class="pv-card pv-dossier" style="left: 312px; top: 128px; width: 340px">
+              <div class="pv-card pv-dossier" style="left: 300px; top: 112px; width: 356px">
                 <img class="pv-dossier__avatar" src="/assets/profiles/avatar-finance.jpg" alt="" />
                 <div>
                   <p class="pv-dossier__name">Adebusola Joyce</p>
                   <p class="pv-muted">Chartered Accountant, 9 Years</p>
                 </div>
-                <div class="pv-checks">
-                  <div class="pv-check"><svg class="ok-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" /><path d="M4.6 8.2l2.2 2.2 4.6-4.8" /></svg><div><p>ID</p><span>NIN matched</span></div></div>
-                  <div class="pv-check"><svg class="ok-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" /><path d="M4.6 8.2l2.2 2.2 4.6-4.8" /></svg><div><p>CAC</p><span>RC 1482301</span></div></div>
-                  <div class="pv-check"><svg class="ok-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" /><path d="M4.6 8.2l2.2 2.2 4.6-4.8" /></svg><div><p>Credentials</p><span>ICAN checked</span></div></div>
-                  <div class="pv-check"><svg class="ok-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" /><path d="M4.6 8.2l2.2 2.2 4.6-4.8" /></svg><div><p>References</p><span>2 of 2 scored</span></div></div>
+                <div class="pv-badges">
+                  <div class="pv-badge"><svg class="i-badge" aria-hidden="true"><use href="#i-verified" /></svg><div><p>ID</p><span>NIN matched</span></div></div>
+                  <div class="pv-badge"><svg class="i-badge" aria-hidden="true"><use href="#i-verified" /></svg><div><p>CAC</p><span>RC 1482301</span></div></div>
+                  <div class="pv-badge"><svg class="i-badge" aria-hidden="true"><use href="#i-verified" /></svg><div><p>Credentials</p><span>ICAN checked</span></div></div>
+                  <div class="pv-badge"><svg class="i-badge" aria-hidden="true"><use href="#i-verified" /></svg><div><p>References</p><span>2 of 2 scored</span></div></div>
                 </div>
               </div>
             </div>
@@ -704,16 +727,16 @@
             <!-- 05 Graduate pipeline -->
             <div class="pv" data-color="#f2583a">
               <div class="pv__photo pv__photo--wide"><img src="/assets/different/pv-05-graduate.jpg" alt="" /></div>
-              <div class="pv-card" style="left: 372px; top: 118px; width: 288px; gap: 4px">
+              <div class="pv-card pv-grad" style="left: 352px; top: 96px; width: 312px">
                 <p class="pv-label-blue">UNILAG degree certificate</p>
                 <p class="pv-strong">First Class</p>
-                <p class="pv-muted-sm">B.Sc. Actuarial Science</p>
+                <p class="pv-muted">B.Sc. Actuarial Science</p>
                 <div class="pv-chips"><span class="pv-chip"><svg class="ok-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" /><path d="M4.6 8.2l2.2 2.2 4.6-4.8" /></svg>Confirmed with UNILAG</span><span class="pv-chip"><svg class="ok-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" /><path d="M4.6 8.2l2.2 2.2 4.6-4.8" /></svg>NYSC</span></div>
               </div>
-              <div class="pv-card" style="left: 372px; top: 268px; width: 288px; gap: 8px">
+              <div class="pv-card pv-grad" style="left: 352px; top: 270px; width: 312px">
                 <img class="pv-emblem" src="/assets/different/nysc-logo.png" width="26" height="33" alt="" />
                 <p class="pv-cert"><strong>NYSC Certificate Of National Service</strong> Completed 2025</p>
-                <div class="pv-chips"><span class="pv-chip"><svg class="ok-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" /><path d="M4.6 8.2l2.2 2.2 4.6-4.8" /></svg>Certificate checked 10 Nov</span></div>
+                <div class="pv-chips"><span class="pv-chip"><svg class="i-badge" aria-hidden="true"><use href="#i-verified" /></svg>Certificate checked 10 Nov</span></div>
               </div>
             </div>
 
@@ -724,7 +747,7 @@
                 <p class="pv-label">REPLACEMENT GUARANTEE</p>
                 <p class="pv-big"><span data-days>7</span> working days</p>
                 <p class="pv-muted">to a new referenced shortlist</p>
-                <img class="pv-dash" src="/assets/different/line-dashed.svg" width="274" height="1" alt="" />
+                <img class="pv-dash" src="/assets/different/line-dashed.svg" width="268" height="1" alt="" />
                 <div class="pv-split"><p class="pv-muted">Extra cost</p><p class="pv-amount">₦0</p></div>
               </div>
             </div>

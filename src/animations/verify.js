@@ -28,10 +28,8 @@
  */
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
-import { Physics2DPlugin } from "gsap/Physics2DPlugin";
-import { countUp } from "./utils.js";
+import { countUp, confettiBurst } from "./utils.js";
 
-gsap.registerPlugin(Physics2DPlugin);
 
 const CONFIG = {
   start: "top 75%",
@@ -263,7 +261,6 @@ function storyReferences(step) {
 /* ---------- Step 4: profile goes live ---------- */
 
 function storyLive(step) {
-  const panel = step.querySelector(".step__panel");
   const layer = step.querySelector(".confetti");
   const [liveCard, pillsCard] = step.querySelectorAll(".ui-card");
   const livePill = liveCard.querySelector(".pill--live");
@@ -289,54 +286,9 @@ function storyLive(step) {
         .to(pills, { autoAlpha: 1, scale: 1, duration: 0.45, stagger: 0.12, ease: "back.out(2.5)" }, 0.7)
         // celebrate
         .to(number, { scale: 1.12, duration: 0.15, yoyo: true, repeat: 1, ease: "power1.out", transformOrigin: "left bottom" }, 1.65)
-        .call(() => confetti(layer, livePill, panel), null, 1.65);
+        .call(() => confettiBurst(layer, livePill, { count: CONFIG.confetti.count, colors: CONFIG.confetti.colors }), null, 1.65);
     },
   };
-}
-
-// A small, subtle burst of confetti from `origin`, clipped to the panel
-function confetti(layer, origin, panel) {
-  const { count, colors } = CONFIG.confetti;
-  const box = panel.getBoundingClientRect();
-  const o = origin.getBoundingClientRect();
-  const x0 = o.left + o.width / 2 - box.left;
-  const y0 = o.top + o.height / 2 - box.top;
-
-  for (let i = 0; i < count; i++) {
-    const piece = document.createElement("i");
-    const isDot = Math.random() < 0.35;
-    const w = isDot ? gsap.utils.random(4, 6) : gsap.utils.random(3, 5);
-    const h = isDot ? w : gsap.utils.random(7, 10);
-    Object.assign(piece.style, {
-      left: `${x0}px`,
-      top: `${y0}px`,
-      width: `${w}px`,
-      height: `${h}px`,
-      borderRadius: isDot ? "50%" : "1px",
-      background: gsap.utils.random(colors),
-    });
-    layer.appendChild(piece);
-
-    const duration = gsap.utils.random(1.3, 1.9);
-    gsap
-      .timeline({ onComplete: () => piece.remove() })
-      .fromTo(piece, { scale: 0 }, { scale: 1, duration: 0.15 })
-      .to(
-        piece,
-        {
-          duration,
-          physics2D: {
-            velocity: gsap.utils.random(140, 300),
-            angle: gsap.utils.random(-160, -20), // mostly upward, fanned left and right
-            gravity: 420,
-          },
-          rotation: gsap.utils.random(-540, 540),
-          ease: "none",
-        },
-        0
-      )
-      .to(piece, { opacity: 0, duration: 0.4 }, duration - 0.4);
-  }
 }
 
 /* ---------- loops ---------- */

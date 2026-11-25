@@ -137,8 +137,10 @@
   background: linear-gradient(to bottom, #d9d4cc, #b9b2a7);
 }
 .pv__photo--a { left: 35px; }
-.pv__photo img { position: absolute; top: 0; max-width: none; }
-.pv__photo img.is-cover { inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* 03–06 use a wider frame in the design (exported at 534×501) */
+.pv__photo--wide { left: 39px; width: 534px; }
+/* photos are exported from Figma already cropped to the frame */
+.pv__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
 /* ---------- Preview cards ---------- */
 .pv-card {
@@ -289,18 +291,7 @@
   white-space: nowrap;
 }
 .pv-chip .ok-icon { width: 13px; height: 13px; margin: 0; }
-.pv-emblem {
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #1f8a5c;
-  border: 2px solid #e8c547;
-  font-weight: 800;
-  font-size: 7px;
-  color: #fff;
-}
+.pv-emblem { width: 26px; height: 33px; }
 .pv-cert { font-size: 14.5px; line-height: 1.4; }
 .pv-cert strong { font-weight: 700; }
 

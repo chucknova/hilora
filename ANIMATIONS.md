@@ -104,10 +104,14 @@ Hover (CSS + `card-tilt.js` / `magnetic.js`):
 
 ## Stats (`stats.js`)
 
+Layout: three stats separated by thin dividers, with a soft shadow under the card.
+Stacks into rows on phones.
+
 | Trigger | Motion |
 |---|---|
 | card reaches 92% of the viewport (once) | card rises 60px + fades in, then each stat fades up (0.12s stagger) |
 | same | numbers count up from 0 to their `data-count` value over 2s, `power3.out` |
+| as each count settles | a 40px **coral rule draws in** under the number (scaleX 0 → 1) |
 
 If the card is already on screen at load, it waits 1.4s so the hero cards land first.
 
@@ -238,9 +242,8 @@ in from the left (0.07s apart), preview rises 40px, the first photo settles from
 container with `zoom: var(--z)`, which a `ResizeObserver` sets, so the cards keep
 their exact layout on tablet and mobile.
 
-**Placeholders to replace:** the photos for 03–06 and the NYSC emblem are stand-ins
-(Figma's API limit was reached before they could be exported). Drop the real
-exports into `figma-exports/` and they'll be swapped in.
+**Photos:** each preview photo is exported from Figma already cropped to its frame
+(`public/assets/different/pv-0N-*.jpg`); frames 03–06 are 534px wide, 01–02 are 502px.
 
 ## Pick a field / industry (`fields.js`)
 

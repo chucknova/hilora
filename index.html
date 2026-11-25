@@ -182,15 +182,24 @@
       <section class="stats" aria-label="Hilora in numbers" data-anim="stats">
         <div class="stats__card">
           <div class="stat">
-            <p class="stat__value" data-count="42">42</p>
+            <div class="stat__figure">
+              <p class="stat__value" data-count="42">42</p>
+              <span class="stat__underline" aria-hidden="true"></span>
+            </div>
             <p class="stat__label">Disciplines</p>
           </div>
           <div class="stat">
-            <p class="stat__value" data-count="565">565</p>
+            <div class="stat__figure">
+              <p class="stat__value" data-count="565">565</p>
+              <span class="stat__underline" aria-hidden="true"></span>
+            </div>
             <p class="stat__label">Recognized Roles</p>
           </div>
           <div class="stat">
-            <p class="stat__value" data-count="275">275</p>
+            <div class="stat__figure">
+              <p class="stat__value" data-count="275">275</p>
+              <span class="stat__underline" aria-hidden="true"></span>
+            </div>
             <p class="stat__label">Verified Credentials checked</p>
           </div>
         </div>
@@ -613,7 +622,7 @@
                 <span class="preview__texture"></span>
             <!-- 01 Scout bounties -->
             <div class="pv is-active" data-color="#3f74d8">
-              <div class="pv__photo pv__photo--a"><img src="/assets/different/scout-photo.jpg" alt="" style="left: -221px; width: 785px; height: 524px" /></div>
+              <div class="pv__photo pv__photo--a"><img src="/assets/different/pv-01-scout.jpg" alt="" /></div>
               <div class="pv-card" style="right: 32px; top: 126px; width: 324px; gap: 14px">
                 <div class="pv-card__group">
                   <p class="pv-label">ROLE YOU’RE SCOUTING FOR</p>
@@ -638,7 +647,7 @@
 
             <!-- 02 Stealth mode -->
             <div class="pv" data-color="#363b48">
-              <div class="pv__photo pv__photo--b"><img src="/assets/different/stealth-photo.jpg" alt="" style="left: 0; width: 785px; height: 524px; transform: scaleX(-1)" /></div>
+              <div class="pv__photo pv__photo--b"><img src="/assets/different/pv-02-stealth.jpg" alt="" /></div>
               <div class="pv-card pv-toggle-card" style="left: 346px; top: 201px; width: 328px">
                 <div class="pv-toggle-card__copy">
                   <p class="pv-toggle-card__title">Make your profile visible to employers</p>
@@ -658,9 +667,9 @@
               </div>
             </div>
 
-            <!-- 03 Escrow (photo is a stand-in until the Figma image is exported) -->
+            <!-- 03 Escrow -->
             <div class="pv" data-color="#1f8a5c">
-              <div class="pv__photo"><img class="is-cover" src="/assets/industries/energy.jpg" alt="" /></div>
+              <div class="pv__photo pv__photo--wide"><img src="/assets/different/pv-03-escrow.jpg" alt="" /></div>
               <div class="pv-card" style="left: 356px; top: 50px; width: 300px; gap: 8px">
                 <p class="pv-label">ESCROW RECEIPT</p>
                 <div class="pv-split"><p class="pv-big">₦185,000</p><span class="pv-tag">PAYMENT HELD</span></div>
@@ -674,9 +683,9 @@
               </div>
             </div>
 
-            <!-- 04 Trust dossier (photo is a stand-in) -->
+            <!-- 04 Trust dossier -->
             <div class="pv" data-color="#5a5fd6">
-              <div class="pv__photo"><img class="is-cover" src="/assets/industries/hr.jpg" alt="" /></div>
+              <div class="pv__photo pv__photo--wide"><img src="/assets/different/pv-04-dossier.jpg" alt="" /></div>
               <div class="pv-card pv-dossier" style="left: 312px; top: 128px; width: 340px">
                 <img class="pv-dossier__avatar" src="/assets/profiles/avatar-finance.jpg" alt="" />
                 <div>
@@ -692,9 +701,9 @@
               </div>
             </div>
 
-            <!-- 05 Graduate pipeline (photo + NYSC logo are stand-ins) -->
+            <!-- 05 Graduate pipeline -->
             <div class="pv" data-color="#f2583a">
-              <div class="pv__photo"><img class="is-cover" src="/assets/industries/technology.jpg" alt="" /></div>
+              <div class="pv__photo pv__photo--wide"><img src="/assets/different/pv-05-graduate.jpg" alt="" /></div>
               <div class="pv-card" style="left: 372px; top: 118px; width: 288px; gap: 4px">
                 <p class="pv-label-blue">UNILAG degree certificate</p>
                 <p class="pv-strong">First Class</p>
@@ -702,15 +711,15 @@
                 <div class="pv-chips"><span class="pv-chip"><svg class="ok-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" /><path d="M4.6 8.2l2.2 2.2 4.6-4.8" /></svg>Confirmed with UNILAG</span><span class="pv-chip"><svg class="ok-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" /><path d="M4.6 8.2l2.2 2.2 4.6-4.8" /></svg>NYSC</span></div>
               </div>
               <div class="pv-card" style="left: 372px; top: 268px; width: 288px; gap: 8px">
-                <span class="pv-emblem" aria-hidden="true">NYSC</span>
+                <img class="pv-emblem" src="/assets/different/nysc-logo.png" width="26" height="33" alt="" />
                 <p class="pv-cert"><strong>NYSC Certificate Of National Service</strong> Completed 2025</p>
                 <div class="pv-chips"><span class="pv-chip"><svg class="ok-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" /><path d="M4.6 8.2l2.2 2.2 4.6-4.8" /></svg>Certificate checked 10 Nov</span></div>
               </div>
             </div>
 
-            <!-- 06 Replacement guarantee (photo is a stand-in) -->
+            <!-- 06 Replacement guarantee -->
             <div class="pv" data-color="#3f74d8">
-              <div class="pv__photo"><img class="is-cover" src="/assets/industries/sales.jpg" alt="" /></div>
+              <div class="pv__photo pv__photo--wide"><img src="/assets/different/pv-06-replacement.jpg" alt="" /></div>
               <div class="pv-card" style="left: 320px; top: 360px; width: 330px; gap: 6px">
                 <p class="pv-label">REPLACEMENT GUARANTEE</p>
                 <p class="pv-big"><span data-days>7</span> working days</p>

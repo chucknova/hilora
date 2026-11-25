@@ -317,14 +317,23 @@
 }
 .stats__card {
   display: flex;
-  gap: 64px;
-  padding: 52px 82px;
+  padding: 48px 40px 44px;
   background: var(--neutral-0);
   border-radius: 24px;
-  box-shadow: 0 1px 0 rgba(8, 8, 63, 0.04);
+  box-shadow: 0 1px 0 rgba(8, 8, 63, 0.04), 0 18px 40px -24px rgba(8, 8, 63, 0.18);
   text-align: center;
 }
-.stat { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 32px;
+}
+/* thin dividers between the stats */
+.stat + .stat { border-left: 1px solid #e6e8ef; }
+
+.stat__figure { position: relative; display: inline-flex; flex-direction: column; align-items: center; }
 .stat__value {
   font-weight: 600;
   font-size: 56px;
@@ -333,17 +342,29 @@
   color: var(--neutral-900);
   font-variant-numeric: tabular-nums;
 }
-.stat__label { font-size: 20px; line-height: 1.5; color: var(--neutral-600); }
-
+/* short coral rule under each number (drawn in by stats.js) */
+.stat__underline {
+  width: 40px;
+  height: 3px;
+  margin-top: 14px;
+  border-radius: 2px;
+  background: var(--coral-500);
+  transform-origin: center;
+}
+.stat__label { margin-top: 14px; font-size: 20px; line-height: 1.5; color: var(--neutral-600); }
 @media (max-width: 1180px) {
   .stats { width: calc(100% - 2 * var(--gutter)); }
-  .stats__card { padding: 40px 32px; gap: 24px; }
+  .stats__card { padding: 40px 16px; }
+  .stat { padding: 0 20px; }
   .stat__value { font-size: 44px; }
   .stat__label { font-size: 17px; }
 }
 @media (max-width: 640px) {
   .stats { margin-top: -64px; }
-  .stats__card { padding: 28px 12px; gap: 8px; }
-  .stat__value { font-size: 32px; letter-spacing: -0.6px; }
-  .stat__label { font-size: 13px; }
+  /* stack on phones: three rows with horizontal dividers */
+  .stats__card { flex-direction: column; padding: 8px 20px; }
+  .stat { padding: 22px 0; }
+  .stat + .stat { border-left: 0; border-top: 1px solid #e6e8ef; }
+  .stat__value { font-size: 40px; letter-spacing: -0.8px; }
+  .stat__label { margin-top: 12px; font-size: 16px; }
 }

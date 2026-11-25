@@ -51,6 +51,11 @@ export function initDifferent({ animate }) {
 
   fitStage(section.querySelector(".preview"), stage);
 
+  // Decode every preview photo up front so the first switch to each one
+  // doesn't stall while the browser decodes a large image mid-animation.
+  section.querySelectorAll(".preview img").forEach((img) => img.decode?.().catch(() => {}));
+  section.querySelector(".preview").classList.add("is-enhanced");
+
   let current = 0;
   let timer = null;
   let hovered = false;
@@ -114,13 +119,21 @@ export function initDifferent({ animate }) {
           gsap.set(outCards, { clearProps: "transform,opacity,visibility" });
         },
       })
+      // wipe from the right using transforms only (GPU-composited, no repaints):
+      // the frame slides in while the photo inside slides the opposite way
       .fromTo(
         inPhoto,
-        { clipPath: "inset(0 0 0 100% round 14px)" },
-        { clipPath: "inset(0 0 0 0% round 14px)", duration: 0.8, ease: "expo.inOut" },
+        { xPercent: 100 },
+        { xPercent: 0, duration: 0.8, ease: "expo.inOut", force3D: true, clearProps: "transform" },
         0.15
       )
-      .fromTo(inImg, { scale: 1.12 }, { scale: 1, duration: 1.4, ease: "power3.out" }, 0.15);
+      .fromTo(
+        inImg,
+        { xPercent: -100, scale: 1.12 },
+        { xPercent: 0, duration: 0.8, ease: "expo.inOut", force3D: true },
+        0.15
+      )
+      .to(inImg, { scale: 1, duration: 1.2, ease: "power3.out", clearProps: "transform" }, 0.35);
 
     playStory(to, i, 0.75);
   }

@@ -220,7 +220,7 @@ off-screen. Clicking a feature opens it and restarts the timer.
 | 0 | old panel / new panel | height collapses / expands together (0.5s, `power3.inOut`); new text fades up |
 | 0 | preview background | eases to the feature's colour (`data-color` on each `.pv`) |
 | 0 | old cards | drop 14px and fade (0.3s) |
-| 0.15 | new photo | wipes in from the right (`clip-path`, 0.8s `expo.inOut`) with a slow zoom from 1.12 → 1 |
+| 0.15 | new photo | wipes in from the right with transforms only (frame slides in, photo counter-slides; 0.8s `expo.inOut`), then settles from 1.12 zoom |
 | 0.75 | new cards | rise 22px, 0.12s apart, then the feature's story plays |
 
 **Card type:** all preview card text is Figtree. Card headers use tight tracking:
@@ -255,6 +255,11 @@ in from the left (0.07s apart), preview rises 40px, the first photo settles from
 1.12 zoom, then story 01 plays and the timer starts.
 
 **Hover (CSS):** closed rows darken their title and the plus turns 90°.
+
+**Performance:** all preview photos and avatars are decoded on init, and inactive
+previews stay painted at `opacity: 0` with `will-change: transform` on the photo
+frame, so a switch never waits on image decoding or layer rasterising. Avoid
+animating `clip-path` or layout properties here.
 
 **Scaling:** the preview is built at the design size (692×580) and scaled to its
 container with `zoom: var(--z)`, which a `ResizeObserver` sets, so the cards keep

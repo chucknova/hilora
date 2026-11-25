@@ -125,6 +125,11 @@
 
 .pv { position: absolute; inset: 0; visibility: hidden; }
 .pv.is-active { visibility: visible; }
+/* With JS: inactive previews stay painted but transparent, so switching to one
+   doesn't have to build and rasterise its photo layer mid-animation. */
+.preview.is-enhanced .pv { visibility: visible; opacity: 0; pointer-events: none; }
+.preview.is-enhanced .pv.is-active { opacity: 1; pointer-events: auto; }
+.preview.is-enhanced .pv__photo { will-change: transform; }
 
 .pv__photo {
   position: absolute;
@@ -140,7 +145,7 @@
 /* 03–06 use a wider frame in the design (exported at 534×501) */
 .pv__photo--wide { left: 39px; width: 534px; }
 /* photos are exported from Figma already cropped to the frame */
-.pv__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pv__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; backface-visibility: hidden; }
 
 /* ---------- Preview cards ----------
    All card text is Figtree. Card headers use tight tracking:
@@ -218,8 +223,8 @@
   height: 44px;
   margin-bottom: 14px;
   border-radius: 50%;
-  background: var(--green-500);
-  box-shadow: 0 0 0 6px #e5f3ec;
+  background: var(--navy-800); /* Hilora navy */
+  box-shadow: 0 0 0 6px var(--navy-100);
 }
 .pv-confirm__icon svg { width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
 .pv-confirm__amount {
